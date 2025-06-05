@@ -76,9 +76,11 @@ export default async function EslintDocsPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-10 mt-4 md:mt-0">
             ESLint Rules Documentation
           </h1>
-          {rules.map((rule) => (
-            <RuleCard key={rule.id} rule={rule} />
-          ))}
+          <section className="flex flex-col gap-4">
+            {rules.map((rule) => (
+              <RuleCard key={rule.id} rule={rule} />
+            ))}
+          </section>
         </div>
       </main>
     </div>

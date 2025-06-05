@@ -1,9 +1,16 @@
-import { Button } from "@/components/ui/button"
-import type { EslintRule } from "@/lib/types"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLinkIcon } from "lucide-react" // Corrected import
-import Link from "next/link"
+import { Button } from '@/components/ui/button'
+import type { EslintRule } from '@/lib/types'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { ExternalLinkIcon } from 'lucide-react' // Corrected import
+import Link from 'next/link'
 
 interface RuleCardProps {
   rule: EslintRule
@@ -11,12 +18,17 @@ interface RuleCardProps {
 
 export function RuleCard({ rule }: RuleCardProps) {
   return (
-    <Card id={rule.id} className="scroll-mt-24 bg-card/80 dark:bg-card/70 backdrop-blur-sm shadow-xl border">
-      {" "}
+    <Card
+      id={rule.id}
+      className="scroll-mt-24 bg-card/80 dark:bg-card/70 backdrop-blur-sm shadow-xl border"
+    >
+      {' '}
       {/* scroll-mt for fixed header offset */}
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-primary">{rule.ruleName}</CardTitle>
-        {rule.pluginName && rule.pluginName !== "N/A" && (
+        <CardTitle className="text-2xl font-semibold text-primary">
+          {rule.ruleName}
+        </CardTitle>
+        {rule.pluginName && rule.pluginName !== 'N/A' && (
           <CardDescription className="pt-1">
             Plugin: <Badge variant="secondary">{rule.pluginName}</Badge>
           </CardDescription>
@@ -24,17 +36,21 @@ export function RuleCard({ rule }: RuleCardProps) {
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <h3 className="text-lg font-medium mb-2 text-foreground/90">Description</h3>
+          <h3 className="text-lg font-medium mb-2 text-foreground/90">
+            Description
+          </h3>
           <p className="text-muted-foreground">
-            Detailed description for this rule is not available in the current data. Please refer to the official
-            documentation linked below.
+            Detailed description for this rule is not available in the current
+            data. Please refer to the official documentation linked below.
           </p>
         </div>
         <div>
-          <h3 className="text-lg font-medium mb-2 text-foreground/90">Examples</h3>
+          <h3 className="text-lg font-medium mb-2 text-foreground/90">
+            Examples
+          </h3>
           <p className="text-muted-foreground">
-            Example code snippets are not available in the current data. Please refer to the official documentation
-            linked below.
+            Example code snippets are not available in the current data. Please
+            refer to the official documentation linked below.
           </p>
           {/* 
           Future enhancement: If example code is available, display it here.
@@ -44,10 +60,13 @@ export function RuleCard({ rule }: RuleCardProps) {
           */}
         </div>
         <div>
-          <h3 className="text-lg font-medium mb-2 text-foreground/90">Options</h3>
+          <h3 className="text-lg font-medium mb-2 text-foreground/90">
+            Options
+          </h3>
           <p className="text-muted-foreground">
-            Information about configurable options is not available in the current data. Please refer to the official
-            documentation linked below.
+            Information about configurable options is not available in the
+            current data. Please refer to the official documentation linked
+            below.
           </p>
         </div>
       </CardContent>

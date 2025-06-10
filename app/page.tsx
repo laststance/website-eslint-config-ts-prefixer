@@ -3,44 +3,70 @@ import { RuleCard } from '@/components/rule-card'
 import type { EslintRule } from '@/lib/types'
 import { AlertTriangle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
 
 async function getEslintRules(): Promise<EslintRule[]> {
-  const csvUrl =
-    'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ESLint_Rules_Documentation-VvX3mnxI5P600Rez7KnVNs0U95MI2w.csv'
   try {
-    const response = await fetch(csvUrl, { cache: 'no-store' }) // Fetch fresh data, or use 'force-cache' or revalidate options
-    if (!response.ok) {
-      console.error(`Failed to fetch CSV: ${response.statusText}`)
-      return []
-    }
-    const csvText = await response.text()
+    const rulesDirectory = path.join(process.cwd(), 'rules')
+    const filenames = fs.readdirSync(rulesDirectory)
+    const markdownFiles = filenames.filter((name) => name.endsWith('.md'))
 
-    const lines = csvText.trim().split('\n')
-    const headerLine = lines.shift()?.toLowerCase() // Remove header and normalize
-    if (!headerLine) return []
+    const rules: EslintRule[] = markdownFiles.map((filename) => {
+      const filePath = path.join(rulesDirectory, filename)
+      const fileContent = fs.readFileSync(filePath, 'utf8')
+      const { data: frontmatter, content } = matter(fileContent)
 
-    // Expected headers: "plugin name", "rule name", "documentation url" (after toLowerCase and trim)
-    // This simple parser assumes values are quoted and there are no commas within quoted values.
-    return lines
-      .map((line) => {
-        const parts = line.split(',')
-        // Naively remove quotes from start/end of each part and trim.
-        const pluginName = parts[0]?.trim().replace(/^"|"$/g, '') || 'N/A'
-        const ruleName = parts[1]?.trim().replace(/^"|"$/g, '')
-        const documentationUrl = parts[2]?.trim().replace(/^"|"$/g, '') || '#'
+      // Parse plugin name and rule name from filename
+      // Examples: eqeqeq.md, typescript-eslint_consistent-type-imports.md, import_order.md
+      const nameWithoutExtension = filename.replace('.md', '')
+      let pluginName = 'Built-in'
+      let ruleName = nameWithoutExtension
 
-        if (!ruleName) return null
+      if (nameWithoutExtension.includes('_')) {
+        const parts = nameWithoutExtension.split('_')
+        pluginName = parts[0]
+        ruleName = parts.slice(1).join('/')
+      }
 
-        return {
-          pluginName: pluginName,
-          ruleName: ruleName,
-          documentationUrl: documentationUrl,
-          id: ruleName.replace(/[^a-zA-Z0-9-_/]/g, '-').toLowerCase(), // Allow slashes for plugin/rule-name
-        }
-      })
-      .filter(Boolean) as EslintRule[]
+      // Map plugin names to display names
+      const pluginDisplayNames: { [key: string]: string } = {
+        'typescript-eslint': '@typescript-eslint',
+        import: 'eslint-plugin-import',
+      }
+
+      const displayPluginName = pluginDisplayNames[pluginName] || pluginName
+
+      // Generate documentation URL (could be made more sophisticated)
+      let documentationUrl = '#'
+      if (pluginName === 'Built-in') {
+        documentationUrl = `https://eslint.org/docs/latest/rules/${ruleName}`
+      } else if (pluginName === 'typescript-eslint') {
+        documentationUrl = `https://typescript-eslint.io/rules/${ruleName}`
+      } else if (pluginName === 'import') {
+        documentationUrl = `https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/${ruleName}.md`
+      }
+
+      return {
+        pluginName: displayPluginName,
+        ruleName,
+        documentationUrl,
+        id: nameWithoutExtension.replace(/[^a-zA-Z0-9-_/]/g, '-').toLowerCase(),
+        content,
+        frontmatter,
+      }
+    })
+
+    // Sort rules by plugin name then rule name
+    return rules.sort((a, b) => {
+      if (a.pluginName !== b.pluginName) {
+        return a.pluginName.localeCompare(b.pluginName)
+      }
+      return a.ruleName.localeCompare(b.ruleName)
+    })
   } catch (error) {
-    console.error('Error fetching or parsing ESLint rules:', error)
+    console.error('Error reading ESLint rule files:', error)
     return []
   }
 }

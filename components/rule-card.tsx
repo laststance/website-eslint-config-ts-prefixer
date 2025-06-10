@@ -9,66 +9,152 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ExternalLinkIcon } from 'lucide-react' // Corrected import
+import { ExternalLinkIcon } from 'lucide-react'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeRaw from 'rehype-raw'
+import {
+  processEslintMarkdown,
+  extractRuleDescription,
+} from '@/lib/markdown-utils'
 
 interface RuleCardProps {
   rule: EslintRule
 }
 
 export function RuleCard({ rule }: RuleCardProps) {
+  // Get the title from frontmatter or fallback to rule name
+  const title = rule.frontmatter.title || rule.ruleName
+  const description =
+    rule.frontmatter.description || extractRuleDescription(rule.content)
+
+  // Process the markdown content to handle ESLint-specific syntax
+  const processedContent = processEslintMarkdown(rule.content)
+
   return (
     <Card
       id={rule.id}
       className="scroll-mt-24 bg-card/80 dark:bg-card/70 backdrop-blur-sm shadow-xl border"
     >
-      {' '}
-      {/* scroll-mt for fixed header offset */}
       <CardHeader>
         <CardTitle className="text-2xl font-semibold text-primary">
-          {rule.ruleName}
+          {title}
         </CardTitle>
-        {rule.pluginName && rule.pluginName !== 'N/A' && (
-          <CardDescription className="pt-1">
-            Plugin: <Badge variant="secondary">{rule.pluginName}</Badge>
+        <div className="flex flex-wrap gap-2 pt-1">
+          {rule.pluginName && rule.pluginName !== 'N/A' && (
+            <Badge variant="secondary">{rule.pluginName}</Badge>
+          )}
+          {rule.frontmatter.rule_type && (
+            <Badge variant="outline">{rule.frontmatter.rule_type}</Badge>
+          )}
+        </div>
+        {description && (
+          <CardDescription className="pt-2 line-clamp-3">
+            {description}
           </CardDescription>
         )}
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div>
-          <h3 className="text-lg font-medium mb-2 text-foreground/90">
-            Description
-          </h3>
-          <p className="text-muted-foreground">
-            Detailed description for this rule is not available in the current
-            data. Please refer to the official documentation linked below.
-          </p>
-        </div>
-        <div>
-          <h3 className="text-lg font-medium mb-2 text-foreground/90">
-            Examples
-          </h3>
-          <p className="text-muted-foreground">
-            Example code snippets are not available in the current data. Please
-            refer to the official documentation linked below.
-          </p>
-          {/* 
-          Future enhancement: If example code is available, display it here.
-          <pre className="bg-muted p-4 rounded-md text-sm overflow-x-auto mt-2">
-            <code className="font-mono">// Example code for {rule.ruleName}</code>
-          </pre> 
-          */}
-        </div>
-        <div>
-          <h3 className="text-lg font-medium mb-2 text-foreground/90">
-            Options
-          </h3>
-          <p className="text-muted-foreground">
-            Information about configurable options is not available in the
-            current data. Please refer to the official documentation linked
-            below.
-          </p>
-        </div>
+      <CardContent className="markdown-content prose prose-slate dark:prose-invert max-w-none">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeHighlight, rehypeRaw]}
+          components={{
+            // Custom styling for different markdown elements
+            h1: ({ children }) => (
+              <h1 className="text-2xl font-bold text-foreground mb-4 mt-6 first:mt-0">
+                {children}
+              </h1>
+            ),
+            h2: ({ children }) => (
+              <h2 className="text-xl font-semibold text-foreground mb-3 mt-5 first:mt-0">
+                {children}
+              </h2>
+            ),
+            h3: ({ children }) => (
+              <h3 className="text-lg font-medium text-foreground mb-2 mt-4 first:mt-0">
+                {children}
+              </h3>
+            ),
+            p: ({ children }) => (
+              <p className="text-muted-foreground mb-3 leading-relaxed">
+                {children}
+              </p>
+            ),
+            code: ({ children, className }) => {
+              const isInline = !className
+              if (isInline) {
+                return (
+                  <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground">
+                    {children}
+                  </code>
+                )
+              }
+              return <code className={className}>{children}</code>
+            },
+            pre: ({ children }) => (
+              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm border mb-4">
+                {children}
+              </pre>
+            ),
+            blockquote: ({ children }) => (
+              <blockquote className="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground">
+                {children}
+              </blockquote>
+            ),
+            ul: ({ children }) => (
+              <ul className="list-disc pl-6 mb-4 space-y-1">{children}</ul>
+            ),
+            ol: ({ children }) => (
+              <ol className="list-decimal pl-6 mb-4 space-y-1">{children}</ol>
+            ),
+            li: ({ children }) => (
+              <li className="text-muted-foreground">{children}</li>
+            ),
+            table: ({ children }) => (
+              <div className="overflow-x-auto mb-4">
+                <table className="w-full border-collapse border border-border">
+                  {children}
+                </table>
+              </div>
+            ),
+            th: ({ children }) => (
+              <th className="border border-border bg-muted px-3 py-2 text-left font-medium">
+                {children}
+              </th>
+            ),
+            td: ({ children }) => (
+              <td className="border border-border px-3 py-2">{children}</td>
+            ),
+            // Handle custom ESLint syntax like ::: incorrect and ::: correct
+            div: ({ children, className }) => {
+              if (className?.includes('incorrect')) {
+                return (
+                  <div className="border border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/20 rounded-lg p-4 mb-4">
+                    <div className="text-red-700 dark:text-red-300 font-medium mb-2">
+                      ❌ Incorrect
+                    </div>
+                    {children}
+                  </div>
+                )
+              }
+              if (className?.includes('correct')) {
+                return (
+                  <div className="border border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/20 rounded-lg p-4 mb-4">
+                    <div className="text-green-700 dark:text-green-300 font-medium mb-2">
+                      ✅ Correct
+                    </div>
+                    {children}
+                  </div>
+                )
+              }
+              return <div className={className}>{children}</div>
+            },
+          }}
+        >
+          {processedContent}
+        </ReactMarkdown>
       </CardContent>
       <CardFooter>
         <Button asChild variant="link" className="px-0">
@@ -78,7 +164,7 @@ export function RuleCard({ rule }: RuleCardProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center text-sm"
           >
-            View Full Documentation
+            View Official Documentation
             <ExternalLinkIcon className="ml-1.5 h-4 w-4" />
           </Link>
         </Button>

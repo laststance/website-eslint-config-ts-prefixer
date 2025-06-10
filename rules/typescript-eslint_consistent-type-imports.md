@@ -2,13 +2,6 @@
 description: 'Enforce consistent usage of type imports.'
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-> 🛑 This file is source code, not the primary documentation location! 🛑
->
-> See **https://typescript-eslint.io/rules/consistent-type-imports** for documentation.
-
 TypeScript allows specifying a `type` keyword on imports to indicate that the export exists only in the type system, not at runtime.
 This allows transpilers to drop imports without knowing the types of the dependencies.
 

@@ -2,13 +2,6 @@
 description: 'Disallow awaiting a value that is not a Thenable.'
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-> 🛑 This file is source code, not the primary documentation location! 🛑
->
-> See **https://typescript-eslint.io/rules/await-thenable** for documentation.
-
 A "Thenable" value is an object which has a `then` method, such as a Promise.
 The [`await` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) is generally used to retrieve the result of calling a Thenable's `then` method.
 

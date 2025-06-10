@@ -2,13 +2,6 @@
 description: 'Require any function or method that returns a Promise to be marked async.'
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-> 🛑 This file is source code, not the primary documentation location! 🛑
->
-> See **https://typescript-eslint.io/rules/promise-function-async** for documentation.
-
 Ensures that each function is only capable of:
 
 - returning a rejected promise, or

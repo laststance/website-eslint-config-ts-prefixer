@@ -2,13 +2,6 @@
 description: 'Disallow unused variables.'
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-> 🛑 This file is source code, not the primary documentation location! 🛑
->
-> See **https://typescript-eslint.io/rules/no-unused-vars** for documentation.
-
 It adds support for TypeScript features, such as types.
 
 ## Options

@@ -2,13 +2,6 @@
 description: 'Disallow unused expressions.'
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-> 🛑 This file is source code, not the primary documentation location! 🛑
->
-> See **https://typescript-eslint.io/rules/no-unused-expressions** for documentation.
-
 It supports TypeScript-specific expressions:
 
 - Marks directives in modules declarations (`"use strict"`, etc.) as not unused

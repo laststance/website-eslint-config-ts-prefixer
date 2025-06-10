@@ -98,7 +98,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               return <code className={className}>{children}</code>
             },
             pre: ({ children }) => (
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm border mb-4">
+              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-base border mb-4">
                 {children}
               </pre>
             ),

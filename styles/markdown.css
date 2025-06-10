@@ -173,7 +173,7 @@
 .markdown-content pre {
   overflow-x: auto;
   border-radius: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -226,7 +226,7 @@
   font-family:
     ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
     monospace;
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: hsl(var(--muted-foreground));
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
@@ -269,7 +269,7 @@
   }
 
   .markdown-content pre {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 
   .markdown-content table {
@@ -282,6 +282,6 @@
 
   .code-option {
     padding: 0.375rem 0.75rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }

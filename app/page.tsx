@@ -1,5 +1,6 @@
 import { RulesSidebar } from '@/components/rules-sidebar'
 import { RuleCard } from '@/components/rule-card'
+import { ThemeToggle } from '@/components/theme-toggle'
 import type { EslintRule } from '@/lib/types'
 import { AlertTriangle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -93,22 +94,27 @@ export default async function EslintDocsPage() {
   }
 
   return (
-    <div className="relative md:flex">
-      <RulesSidebar rules={rules} />
-      <main className="flex-1 p-6 md:p-10 space-y-8 md:ml-72 min-h-screen">
-        <div className="max-w-4xl mx-auto">
-          {' '}
-          {/* Content constraint */}
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-10 mt-4 md:mt-0">
-            ESLint Rules Documentation
-          </h1>
-          <section className="flex flex-col gap-4">
-            {rules.map((rule) => (
-              <RuleCard key={rule.id} rule={rule} />
-            ))}
-          </section>
-        </div>
-      </main>
+    <div className="relative">
+      <header className="fixed top-0 right-0 z-50 p-4">
+        <ThemeToggle />
+      </header>
+      <div className="md:flex">
+        <RulesSidebar rules={rules} />
+        <main className="flex-1 p-6 md:p-10 space-y-8 md:ml-72 min-h-screen">
+          <div className="max-w-4xl mx-auto">
+            {' '}
+            {/* Content constraint */}
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-10 mt-4 md:mt-0">
+              ESLint Rules Documentation
+            </h1>
+            <section className="flex flex-col gap-4">
+              {rules.map((rule) => (
+                <RuleCard key={rule.id} rule={rule} />
+              ))}
+            </section>
+          </div>
+        </main>
+      </div>
     </div>
   )
 }

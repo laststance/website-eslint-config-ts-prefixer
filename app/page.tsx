@@ -59,10 +59,18 @@ async function getEslintRules(): Promise<EslintRule[]> {
       }
     })
 
-    // Sort rules by plugin name then rule name
+    // Sort rules by custom plugin order: Built-in < eslint-plugin-import < @typescript-eslint
+    const pluginOrder = [
+      'Built-in',
+      'eslint-plugin-import',
+      '@typescript-eslint',
+    ]
+
     return rules.sort((a, b) => {
       if (a.pluginName !== b.pluginName) {
-        return a.pluginName.localeCompare(b.pluginName)
+        const orderA = pluginOrder.indexOf(a.pluginName)
+        const orderB = pluginOrder.indexOf(b.pluginName)
+        return orderA - orderB
       }
       return a.ruleName.localeCompare(b.ruleName)
     })

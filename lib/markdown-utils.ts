@@ -9,7 +9,6 @@ export function processEslintMarkdown(content: string): string {
     /::: incorrect\s*\n([\s\S]*?)\n:::/g,
     (match, blockContent) => {
       return `<div class="eslint-block incorrect">
-<div class="eslint-block-header">❌ Incorrect</div>
 
 ${blockContent.trim()}
 
@@ -22,7 +21,6 @@ ${blockContent.trim()}
     /::: correct\s*\n([\s\S]*?)\n:::/g,
     (match, blockContent) => {
       return `<div class="eslint-block correct">
-<div class="eslint-block-header">✅ Correct</div>
 
 ${blockContent.trim()}
 

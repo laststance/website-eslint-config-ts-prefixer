@@ -63,7 +63,6 @@ f(0), {}
 a && b()
 
 a, b()
-
 ;(c = a), b
 
 a() &&
@@ -266,7 +265,6 @@ Examples of **incorrect** code for the `{ "enforceForJSX": true }` option:
 /*eslint no-unused-expressions: ["error", { "enforceForJSX": true }]*/
 
 ;<MyComponent />
-
 ;<></>
 ```
 

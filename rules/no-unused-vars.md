@@ -78,7 +78,6 @@ myFunc(
     // ...
   }.bind(this),
 )
-
 ;(function (foo) {
   return foo
 })()

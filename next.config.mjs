@@ -1,3 +1,5 @@
+import { codeInspectorPlugin } from 'code-inspector-plugin'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -8,6 +10,12 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+  },
+  webpack: (config, { dev, isServer }) => {
+    config.plugins.push(
+      codeInspectorPlugin({ bundler: 'webpack', hotKeys: ['ctrlKey'] }),
+    )
+    return config
   },
 }
 

@@ -112,8 +112,8 @@ export default async function EslintDocsPage() {
           <div className="max-w-4xl mx-auto">
             {' '}
             {/* Content constraint */}
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-10 mt-4 md:mt-0">
-              ESLint Rules Documentation
+            <h1 className="text-white text-3xl md:text-4xl font-bold mb-10 mt-4 md:mt-0">
+              eslint-config-ts-prefixer Rules Documentation
             </h1>
             <section className="flex flex-col gap-4">
               {rules.map((rule) => (

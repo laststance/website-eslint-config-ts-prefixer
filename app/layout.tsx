@@ -6,10 +6,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'ESLint Rules Documentation',
-  description:
-    'Comprehensive documentation for ESLint rules, dynamically fetched from CSV.',
-  generator: 'v0.dev',
+  title: 'eslint-config-ts-prefixer Documentation',
+  description: 'Documentation for eslint-config-ts-prefixer',
 }
 
 export default function RootLayout({

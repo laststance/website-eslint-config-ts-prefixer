@@ -1,0 +1,50 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# ESLint Config TS Prefixer Documentation Website
+
+This is a Next.js 15 application built to document ESLint rules for the eslint-config-ts-prefixer package. The project uses modern React patterns, TypeScript, Tailwind CSS, and shadcn/ui components.
+
+## Project Structure
+
+The main entry point is [app/page.tsx](mdc:app/page.tsx), which uses Next.js App Router architecture. The layout is defined in [app/layout.tsx](mdc:app/layout.tsx) with theme support.
+
+### Key Directories:
+- **`app/`** - Next.js App Router pages and layouts
+- **`components/`** - React components, including shadcn/ui components in `ui/` subdirectory
+- **`lib/`** - Utility functions and type definitions ([lib/types.ts](mdc:lib/types.ts))
+- **`rules/`** - Markdown files containing ESLint rule documentation
+- **`hooks/`** - Custom React hooks
+- **`styles/`** - Global CSS files and Tailwind configuration
+
+### Main Components:
+- [components/rule-card.tsx](mdc:components/rule-card.tsx) - Displays individual ESLint rules
+- [components/rules-sidebar.tsx](mdc:components/rules-sidebar.tsx) - Navigation sidebar
+- [components/theme-provider.tsx](mdc:components/theme-provider.tsx) - Dark/light theme management
+- [components/theme-toggle.tsx](mdc:components/theme-toggle.tsx) - Theme switcher component
+
+## Architecture Patterns
+
+### Data Flow
+ESLint rules are stored as markdown files in the `rules/` directory. The main page reads these files, parses frontmatter with gray-matter, and creates EslintRule objects defined in [lib/types.ts](mdc:lib/types.ts).
+
+### Markdown Processing
+Rule documentation uses a special format with frontmatter and ESLint-specific syntax like `::: incorrect` and `::: correct` blocks, processed by [lib/markdown-utils.ts](mdc:lib/markdown-utils.ts).
+
+### Styling
+The project uses Tailwind CSS with a glass morphism design, featuring backdrop blur effects and transparency. Theme support is provided via next-themes.
+
+## Development Conventions
+
+### File Naming
+- React components use kebab-case (rule-card.tsx)
+- Utility files use kebab-case (markdown-utils.ts)
+- ESLint rule files follow the pattern `plugin_rule-name.md` or `rule-name.md`
+
+### Component Structure
+Components use TypeScript with proper interface definitions, shadcn/ui components for consistent UI, and Tailwind for styling with theme-aware classes.
+
+### ESLint Rule Format
+Rule markdown files include frontmatter with title, rule_type, and description, followed by markdown content with ESLint-specific syntax highlighting.

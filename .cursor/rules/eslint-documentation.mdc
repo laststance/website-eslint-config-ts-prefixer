@@ -1,0 +1,90 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# ESLint Rules Documentation Standards
+
+## Rule File Format
+
+ESLint rule documentation files in the `rules/` directory follow a specific format:
+
+### File Naming Convention
+- Built-in ESLint rules: `rule-name.md` (e.g., `eqeqeq.md`)
+- Plugin rules: `plugin_rule-name.md` (e.g., `typescript-eslint_consistent-type-imports.md`)
+- Import plugin rules: `import_rule-name.md` (e.g., `import_order.md`)
+
+### Frontmatter Structure
+```yaml
+---
+title: Rule Name
+rule_type: suggestion|problem|layout
+description: Brief description of what the rule does
+---
+```
+
+### Content Structure
+1. **Introduction** - Brief explanation of the rule's purpose
+2. **Rule Details** - Detailed explanation with examples
+3. **Examples** - Use ESLint-specific syntax blocks
+4. **Options** - Configuration options if applicable
+5. **When Not To Use It** - Edge cases or exceptions
+
+### ESLint Syntax Blocks
+Use special syntax for code examples:
+
+```markdown
+::: incorrect
+```js
+// Bad code example
+const x = 1
+```
+:::
+
+::: correct
+```js
+// Good code example  
+const x = 1
+```
+:::
+```
+
+## Rule Processing
+
+The [lib/markdown-utils.ts](mdc:lib/markdown-utils.ts) file processes ESLint-specific markdown syntax and converts it to React-friendly components in [components/rule-card.tsx](mdc:components/rule-card.tsx).
+
+### Processing Pipeline
+1. Read markdown files from `rules/` directory
+2. Parse frontmatter with gray-matter
+3. Extract plugin name and rule name from filename
+4. Generate documentation URLs based on plugin type
+5. Process special ESLint syntax blocks
+6. Render with ReactMarkdown and syntax highlighting
+
+## Data Types
+
+The `EslintRule` interface in [lib/types.ts](mdc:lib/types.ts) defines the structure:
+- `pluginName` - Plugin name (Built-in, @typescript-eslint, eslint-plugin-import)
+- `ruleName` - Rule identifier
+- `documentationUrl` - Official documentation link
+- `id` - Unique identifier for anchor links
+- `content` - Processed markdown content
+- `frontmatter` - Parsed YAML frontmatter data
+
+## Plugin Name Mapping
+The system maps plugin prefixes to display names:
+- `typescript-eslint` → `@typescript-eslint`
+- `import` → `eslint-plugin-import`
+- No prefix → `Built-in`
+
+## Documentation URL Generation
+URLs are automatically generated based on plugin type:
+- Built-in rules: `https://eslint.org/docs/latest/rules/{ruleName}`
+- TypeScript ESLint: `https://typescript-eslint.io/rules/{ruleName}`
+- Import plugin: `https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/{ruleName}.md`
+
+## Adding New Rules
+1. Create markdown file in `rules/` directory with proper naming convention
+2. Include frontmatter with title, rule_type, and description
+3. Use ESLint syntax blocks for code examples
+4. File will be automatically processed and displayed

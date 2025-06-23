@@ -1,0 +1,107 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Development Workflow
+
+## Project Setup
+
+### Prerequisites
+- Node.js managed by Volta (version specified in [package.json](mdc:package.json))
+- pnpm package manager
+- Fish shell (preferred over Bash)
+
+### Getting Started
+```fish
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Run linting
+pnpm lint
+
+# Format code
+pnpm prettier
+```
+
+## Development Tools
+
+### Package Manager
+- Uses pnpm with workspace configuration in [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml)
+- Volta manages Node.js version consistently across environments
+- Lock file: [pnpm-lock.yaml](mdc:pnpm-lock.yaml)
+
+### Code Quality
+- Prettier for code formatting ([.prettierrc](mdc:.prettierrc))
+- ESLint for code linting (Next.js built-in)
+- Husky for git hooks ([.husky/](mdc:.husky/))
+- lint-staged for pre-commit formatting
+
+### Build & Configuration
+- Next.js configuration in [next.config.mjs](mdc:next.config.mjs)
+- Tailwind CSS configuration in [tailwind.config.ts](mdc:tailwind.config.ts)
+- PostCSS configuration in [postcss.config.mjs](mdc:postcss.config.mjs)
+- TypeScript configuration in [tsconfig.json](mdc:tsconfig.json)
+
+## Content Management
+
+### ESLint Rules
+- Rule files stored in `rules/` directory as markdown
+- Fetch script: [fetch-eslint-docs.js](mdc:fetch-eslint-docs.js)
+- CSV data: [ESLint_Rules_Documentation.csv](mdc:ESLint_Rules_Documentation.csv)
+
+### Adding New Rules
+1. Create markdown file in `rules/` directory
+2. Follow naming convention: `plugin_rule-name.md`
+3. Include proper frontmatter
+4. Test locally with `pnpm dev`
+
+## Testing & Verification
+
+### Local Development
+- Run `pnpm dev` to start development server on port 3000
+- Check for port availability before starting
+- Use browser developer tools for debugging
+
+### UI Testing
+- Use Playwright for automated UI testing
+- Generate test code for new features
+- Include screenshots for visual verification
+- Re-run tests after fixing bugs
+
+### Code Quality Checks
+- Pre-commit hooks run automatically
+- Manual formatting: `pnpm prettier`
+- Linting: `pnpm lint`
+- Type checking: TypeScript compiler
+
+## Deployment
+
+### Build Process
+```fish
+pnpm build
+```
+
+### Static Assets
+- Images stored in [public/images/](mdc:public/images/)
+- Background image for glass morphism effect
+- Placeholder assets for development
+
+## Git Workflow
+
+### Pre-commit Process
+1. Husky runs pre-commit hooks
+2. lint-staged formats staged files
+3. Prettier applies formatting
+4. Commit proceeds if no errors
+
+### File Patterns
+- All files formatted with Prettier
+- Ignore patterns in [.prettierignore](mdc:.prettierignore)
+- Git ignore patterns in [.gitignore](mdc:.gitignore)

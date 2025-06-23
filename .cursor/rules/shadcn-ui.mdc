@@ -1,0 +1,105 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# shadcn/ui Component Guidelines
+
+## Available Components
+
+The project uses shadcn/ui components located in [components/ui/](mdc:components/ui/). Key components include:
+
+### Core Components
+- **Button** - [components/ui/button.tsx](mdc:components/ui/button.tsx)
+- **Card** - [components/ui/card.tsx](mdc:components/ui/card.tsx) with CardHeader, CardContent, CardFooter
+- **Badge** - [components/ui/badge.tsx](mdc:components/ui/badge.tsx) for tags and labels
+- **Alert** - [components/ui/alert.tsx](mdc:components/ui/alert.tsx) for notifications
+
+### Layout Components
+- **Sidebar** - [components/ui/sidebar.tsx](mdc:components/ui/sidebar.tsx)
+- **ScrollArea** - [components/ui/scroll-area.tsx](mdc:components/ui/scroll-area.tsx)
+- **Separator** - [components/ui/separator.tsx](mdc:components/ui/separator.tsx)
+- **Sheet** - [components/ui/sheet.tsx](mdc:components/ui/sheet.tsx)
+
+### Form Components
+- **Input** - [components/ui/input.tsx](mdc:components/ui/input.tsx)
+- **Button** - [components/ui/button.tsx](mdc:components/ui/button.tsx)
+- **Select** - [components/ui/select.tsx](mdc:components/ui/select.tsx)
+- **Switch** - [components/ui/switch.tsx](mdc:components/ui/switch.tsx)
+
+## Usage Patterns
+
+### Component Imports
+Always import components with proper paths:
+```typescript
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+```
+
+### Styling with Variants
+Use component variants for consistent styling:
+```typescript
+<Button variant="outline" size="sm">Click me</Button>
+<Badge variant="secondary">Plugin Name</Badge>
+<Alert variant="destructive">Error message</Alert>
+```
+
+### Theme Integration
+All shadcn/ui components support dark mode automatically through CSS variables defined in [app/globals.css](mdc:app/globals.css).
+
+### Custom Styling
+Extend components with Tailwind classes:
+```typescript
+<Card className="bg-card/80 backdrop-blur-sm shadow-xl">
+  <CardContent className="prose prose-slate dark:prose-invert max-w-none">
+    Content here
+  </CardContent>
+</Card>
+```
+
+## Component Composition Patterns
+
+### Card Layout
+```typescript
+<Card>
+  <CardHeader>
+    <CardTitle>Title</CardTitle>
+    <CardDescription>Description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    Main content
+  </CardContent>
+  <CardFooter>
+    Footer actions
+  </CardFooter>
+</Card>
+```
+
+### Alert Messages
+```typescript
+<Alert variant="destructive">
+  <AlertTriangle className="h-4 w-4" />
+  <AlertTitle>Error Title</AlertTitle>
+  <AlertDescription>Error description</AlertDescription>
+</Alert>
+```
+
+## Best Practices
+- Use semantic component composition (CardHeader > CardTitle + CardDescription)
+- Apply backdrop blur effects for glass morphism design
+- Ensure proper responsive behavior with Tailwind responsive prefixes
+- Maintain consistent spacing and typography using prose classes for markdown content
+- Use proper icon sizing (typically h-4 w-4 for inline icons)
+
+## Theme-Aware Styling
+Components automatically adapt to light/dark themes through:
+- CSS custom properties in [app/globals.css](mdc:app/globals.css)
+- Theme provider in [components/theme-provider.tsx](mdc:components/theme-provider.tsx)
+- Theme toggle in [components/theme-toggle.tsx](mdc:components/theme-toggle.tsx)
+
+## Configuration
+Component configuration is managed through [components.json](mdc:components.json) with:
+- Tailwind CSS integration
+- TypeScript support
+- Path aliases (@/components/ui)
+- CSS variables for theming

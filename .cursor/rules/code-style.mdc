@@ -1,0 +1,64 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Code Style Guidelines
+
+## TypeScript & React Standards
+
+### Component Patterns
+- Use `interface` for component props (never `type` for React props)
+- Always use proper TypeScript imports: `import type React from 'react'`
+- Prefer named exports over default exports for components (except for pages)
+- Use `async/await` pattern for server components in Next.js App Router
+
+### Example Component Structure:
+```typescript
+import type React from 'react'
+import { ComponentName } from '@/components/ui/component-name'
+
+interface ComponentProps {
+  prop: string
+}
+
+export function ComponentName({ prop }: ComponentProps) {
+  return <div>{prop}</div>
+}
+```
+
+### Styling Conventions
+- Use Tailwind CSS classes with proper responsive prefixes
+- Implement theme-aware styling with `dark:` prefixes
+- Use backdrop-blur effects: `backdrop-blur-sm`, `bg-card/80` for glass morphism
+- Follow shadcn/ui component patterns for consistent UI
+
+### Next.js App Router Patterns
+- Server components by default (no 'use client' unless needed)
+- Use `'use client'` only at component boundaries that need client-side features
+- File-based routing in `app/` directory
+- Metadata API for SEO configuration
+
+### Import Organization
+```typescript
+// External libraries first
+import React from 'react'
+import { ComponentName } from 'external-lib'
+
+// Internal components and utilities
+import { Button } from '@/components/ui/button'
+import type { EslintRule } from '@/lib/types'
+import { utilityFunction } from '@/lib/utils'
+```
+
+## Code Quality
+- Use proper error handling with try/catch blocks
+- Implement loading states and error states
+- Follow accessibility best practices with proper ARIA labels
+- Use semantic HTML elements where appropriate
+
+## Package Management
+- Project uses pnpm with Volta for Node.js version management
+- Dependencies are managed through [package.json](mdc:package.json)
+- Prettier formatting is enforced with [.prettierrc](mdc:.prettierrc)
+- Husky pre-commit hooks ensure code quality

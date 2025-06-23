@@ -11,8 +11,6 @@ This allows transpilers to drop imports without knowing the types of the depende
 
 ### `prefer`
 
-{/_ insert option description _/}
-
 Valid values for `prefer` are:
 
 - `type-imports` will enforce that you always use `import type Foo from '...'` except referenced by metadata of decorators. It is the default.
@@ -37,8 +35,6 @@ const x: Bar = 1
 ```
 
 ### `fixStyle`
-
-{/_ insert option description _/}
 
 Valid values for `fixStyle` are:
 
@@ -79,8 +75,6 @@ const x: Bar = 1
 </Tabs>
 
 ### `disallowTypeAnnotations`
-
-{/_ insert option description _/}
 
 Examples of **incorrect** code with `{disallowTypeAnnotations: true}`:
 

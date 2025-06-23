@@ -15,8 +15,6 @@ See [`no-floating-promises`](./no-floating-promises.mdx) for detecting unhandled
 
 ### `checksConditionals`
 
-{/_ insert option description _/}
-
 If you don't want to check conditionals, you can configure the rule with `"checksConditionals": false`:
 
 ```json
@@ -33,8 +31,6 @@ If you don't want to check conditionals, you can configure the rule with `"check
 Doing so prevents the rule from looking at code like `if (somePromise)`.
 
 ### `checksVoidReturn`
-
-{/_ insert option description _/}
 
 Likewise, if you don't want to check functions that return promises where a void return is
 expected, your configuration will look like this:
@@ -98,8 +94,6 @@ Disables checking an asynchronous function used as a variable whose return type 
 
 ### `checksSpreads`
 
-{/_ insert option description _/}
-
 If you don't want to check object spreads, you can add this configuration:
 
 ```json
@@ -116,8 +110,6 @@ If you don't want to check object spreads, you can add this configuration:
 ## Examples
 
 ### `checksConditionals`
-
-{/_ insert option description _/}
 
 Examples of code for this rule with `checksConditionals: true`:
 
@@ -165,8 +157,6 @@ while (await promise) {
 </Tabs>
 
 ### `checksVoidReturn`
-
-{/_ insert option description _/}
 
 Examples of code for this rule with `checksVoidReturn: true`:
 
@@ -254,8 +244,6 @@ class MyClass implements MyAsyncInterface {
 </Tabs>
 
 ### `checksSpreads`
-
-{/_ insert option description _/}
 
 Examples of code for this rule with `checksSpreads: true`:
 

@@ -61,8 +61,6 @@ async function functionReturnsUnionWithPromiseImplicitly(p: boolean) {
 
 ### `allowAny`
 
-{/_ insert option description _/}
-
 If you want additional safety, consider turning this option off, as it makes the rule less able to catch incorrect Promise behaviors.
 
 Examples of code with `{ "allowAny": false }`:
@@ -85,8 +83,6 @@ const returnsAny = async () => ({}) as any
 </Tabs>
 
 ### `allowedPromiseNames`
-
-{/_ insert option description _/}
 
 For projects that use constructs other than the global built-in `Promise` for asynchronous code.
 This option allows specifying string names of classes or interfaces that cause a function to be checked as well.
@@ -116,19 +112,11 @@ const returnsBluebird = async () => new Bluebird(() => {})
 
 ### `checkArrowFunctions`
 
-{/_ insert option description _/}
-
 ### `checkFunctionDeclarations`
-
-{/_ insert option description _/}
 
 ### `checkFunctionExpressions`
 
-{/_ insert option description _/}
-
 ### `checkMethodDeclarations`
-
-{/_ insert option description _/}
 
 ## When Not To Use It
 

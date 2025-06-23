@@ -52,7 +52,7 @@ export function RuleCard({ rule }: RuleCardProps) {
           )}
         </div>
         {description && (
-          <CardDescription className="pt-2 line-clamp-3">
+          <CardDescription className="text-primary text-lg pt-2 line-clamp-3">
             {description}
           </CardDescription>
         )}

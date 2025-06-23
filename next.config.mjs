@@ -13,7 +13,7 @@ const nextConfig = {
   },
   webpack: (config, { dev, isServer }) => {
     config.plugins.push(
-      codeInspectorPlugin({ bundler: 'webpack', hotKeys: ['ctrlKey'] }),
+      codeInspectorPlugin({ bundler: 'webpack', hotKeys: ['altKey'] }),
     )
     return config
   },

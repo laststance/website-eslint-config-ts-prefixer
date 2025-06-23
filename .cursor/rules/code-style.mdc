@@ -1,7 +1,7 @@
 ---
-description:
-globs:
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 # Code Style Guidelines
 
@@ -62,3 +62,4 @@ import { utilityFunction } from '@/lib/utils'
 - Dependencies are managed through [package.json](mdc:package.json)
 - Prettier formatting is enforced with [.prettierrc](mdc:.prettierrc)
 - Husky pre-commit hooks ensure code quality
+

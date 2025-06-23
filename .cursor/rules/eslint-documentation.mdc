@@ -1,7 +1,7 @@
 ---
-description:
-globs:
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 # ESLint Rules Documentation Standards
 
@@ -88,3 +88,4 @@ URLs are automatically generated based on plugin type:
 2. Include frontmatter with title, rule_type, and description
 3. Use ESLint syntax blocks for code examples
 4. File will be automatically processed and displayed
+

@@ -1,7 +1,7 @@
 ---
-description:
-globs:
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 # ESLint Config TS Prefixer Documentation Website
 
@@ -48,3 +48,4 @@ Components use TypeScript with proper interface definitions, shadcn/ui component
 
 ### ESLint Rule Format
 Rule markdown files include frontmatter with title, rule_type, and description, followed by markdown content with ESLint-specific syntax highlighting.
+

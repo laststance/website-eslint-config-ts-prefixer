@@ -1,13 +1,13 @@
 ---
-description:
-globs:
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 # shadcn/ui Component Guidelines
 
 ## Available Components
 
-The project uses shadcn/ui components located in [components/ui/](mdc:components/ui/). Key components include:
+The project uses shadcn/ui components located in [components/ui/](mdc:components/ui). Key components include:
 
 ### Core Components
 - **Button** - [components/ui/button.tsx](mdc:components/ui/button.tsx)
@@ -103,3 +103,4 @@ Component configuration is managed through [components.json](mdc:components.json
 - TypeScript support
 - Path aliases (@/components/ui)
 - CSS variables for theming
+

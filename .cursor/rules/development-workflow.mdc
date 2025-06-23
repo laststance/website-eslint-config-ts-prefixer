@@ -1,7 +1,7 @@
 ---
-description:
-globs:
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 # Development Workflow
 
@@ -40,7 +40,7 @@ pnpm prettier
 ### Code Quality
 - Prettier for code formatting ([.prettierrc](mdc:.prettierrc))
 - ESLint for code linting (Next.js built-in)
-- Husky for git hooks ([.husky/](mdc:.husky/))
+- Husky for git hooks ([.husky/](mdc:.husky))
 - lint-staged for pre-commit formatting
 
 ### Build & Configuration
@@ -89,7 +89,7 @@ pnpm build
 ```
 
 ### Static Assets
-- Images stored in [public/images/](mdc:public/images/)
+- Images stored in [public/images/](mdc:public/images)
 - Background image for glass morphism effect
 - Placeholder assets for development
 
@@ -105,3 +105,4 @@ pnpm build
 - All files formatted with Prettier
 - Ignore patterns in [.prettierignore](mdc:.prettierignore)
 - Git ignore patterns in [.gitignore](mdc:.gitignore)
+

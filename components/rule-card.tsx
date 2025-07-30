@@ -47,9 +47,10 @@ export function RuleCard({ rule }: RuleCardProps) {
           {rule.pluginName && rule.pluginName !== 'N/A' && (
             <Badge variant="secondary">{rule.pluginName}</Badge>
           )}
-          {rule.frontmatter.rule_type && (
-            <Badge variant="outline">{rule.frontmatter.rule_type}</Badge>
-          )}
+          {rule.frontmatter.rule_type &&
+            rule.frontmatter.rule_type !== 'suggestion' && (
+              <Badge variant="outline">{rule.frontmatter.rule_type}</Badge>
+            )}
         </div>
         {description && (
           <CardDescription className="text-primary text-lg pt-2 line-clamp-3">

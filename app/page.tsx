@@ -1,6 +1,6 @@
 import { RulesSidebar } from '@/components/rules-sidebar'
 import { RuleCard } from '@/components/rule-card'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { Header } from '@/components/header'
 import type { EslintRule } from '@/lib/types'
 import { AlertTriangle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -103,10 +103,8 @@ export default async function EslintDocsPage() {
 
   return (
     <div className="relative">
-      <header className="fixed top-0 right-0 z-50 p-4">
-        <ThemeToggle />
-      </header>
-      <div className="md:flex">
+      <Header />
+      <div className="md:flex pt-16">
         <RulesSidebar rules={rules} />
         <main className="flex-1 p-6 md:p-10 space-y-8 md:ml-72 min-h-screen">
           <div className="max-w-4xl mx-auto">

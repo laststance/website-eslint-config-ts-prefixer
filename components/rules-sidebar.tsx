@@ -14,11 +14,11 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
   // const pathname = usePathname(); // Example if we want to highlight based on URL fragment
 
   return (
-    <aside className="w-full md:fixed md:left-0 md:top-0 md:w-72 md:h-screen bg-card/80 dark:bg-card/70 backdrop-blur-md p-4 shadow-lg z-40 border-r">
+    <aside className="w-full md:fixed md:left-0 md:top-16 md:w-72 md:h-[calc(100vh-4rem)] bg-card/80 dark:bg-card/70 backdrop-blur-md p-4 shadow-lg z-40 border-r">
       <h2 className="text-xl font-semibold mb-4 text-foreground px-2 pt-2">
         ESLint Rules
       </h2>
-      <ScrollArea className="h-[calc(100vh-70px)]">
+      <ScrollArea className="h-[calc(100vh-8rem)]">
         {' '}
         {/* Adjust height based on title and padding */}
         <nav className="py-2">

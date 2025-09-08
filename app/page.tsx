@@ -108,15 +108,164 @@ export default async function EslintDocsPage() {
         <RulesSidebar rules={rules} />
         <main className="flex-1 p-6 md:p-10 space-y-8 md:ml-72 min-h-screen">
           <div className="max-w-4xl mx-auto">
-            {' '}
-            {/* Content constraint */}
-            <h1 className="text-white text-3xl md:text-4xl font-bold mb-10 mt-4 md:mt-0">
-              eslint-config-ts-prefixer Rules Documentation
-            </h1>
-            <section className="flex flex-col gap-4">
-              {rules.map((rule) => (
-                <RuleCard key={rule.id} rule={rule} />
-              ))}
+            {/* Hero Section */}
+            <section className="mb-12">
+              <h1 className="text-white text-4xl md:text-5xl font-bold mb-4">
+                eslint-config-ts-prefixer
+              </h1>
+              <p className="text-gray-300 text-lg md:text-xl mb-8">
+                A zero-config TypeScript ESLint configuration with Prettier
+                integration
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#installation"
+                  className="inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  Get Started
+                </a>
+                <a
+                  href="https://github.com/laststance/eslint-config-ts-prefixer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-5 py-2.5 bg-card/50 text-foreground font-medium rounded-lg hover:bg-card/70 transition-colors border border-border"
+                >
+                  View on GitHub
+                </a>
+              </div>
+            </section>
+
+            {/* Installation Section */}
+            <section
+              id="installation"
+              className="mb-12 bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-border"
+            >
+              <h2 className="text-white text-2xl font-semibold mb-4">
+                Installation
+              </h2>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-gray-300 mb-3">
+                    Install the package using your preferred package manager:
+                  </p>
+                  <div className="space-y-3">
+                    <div className="bg-black/30 p-3 rounded">
+                      <code className="text-green-400">
+                        pnpm add -D eslint-config-ts-prefixer@latest
+                      </code>
+                    </div>
+                    <div className="bg-black/30 p-3 rounded">
+                      <code className="text-green-400">
+                        npm install --save-dev eslint-config-ts-prefixer@latest
+                      </code>
+                    </div>
+                    <div className="bg-black/30 p-3 rounded">
+                      <code className="text-green-400">
+                        yarn add -D eslint-config-ts-prefixer
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Configuration Section */}
+            <section
+              id="configuration"
+              className="mb-12 bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-border"
+            >
+              <h2 className="text-white text-2xl font-semibold mb-4">
+                Configuration
+              </h2>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-gray-300 mb-3">
+                    Add to your{' '}
+                    <code className="text-blue-400">eslint.config.js</code>:
+                  </p>
+                  <div className="bg-black/30 p-4 rounded overflow-x-auto">
+                    <pre className="text-gray-200">
+                      {`import { defineConfig } from 'eslint/config'
+import tsPrefixer from 'eslint-config-ts-prefixer'
+
+export default defineConfig([...tsPrefixer])`}
+                    </pre>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-gray-300 mb-3">
+                    Add lint scripts to your{' '}
+                    <code className="text-blue-400">package.json</code>:
+                  </p>
+                  <div className="bg-black/30 p-4 rounded overflow-x-auto">
+                    <pre className="text-gray-200">
+                      {`{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Features Section */}
+            <section id="features" className="mb-12">
+              <h2 className="text-white text-2xl font-semibold mb-6">
+                Key Features
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
+                  <h3 className="text-white font-semibold mb-2">
+                    Zero-config approach
+                  </h3>
+                  <p className="text-gray-300 text-sm">
+                    Explicit rules configuration with sensible defaults
+                  </p>
+                </div>
+                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
+                  <h3 className="text-white font-semibold mb-2">
+                    Prettier integration
+                  </h3>
+                  <p className="text-gray-300 text-sm">
+                    Works seamlessly with your existing .prettierrc
+                  </p>
+                </div>
+                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
+                  <h3 className="text-white font-semibold mb-2">
+                    TypeScript first
+                  </h3>
+                  <p className="text-gray-300 text-sm">
+                    Built for TypeScript v5+ projects
+                  </p>
+                </div>
+                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
+                  <h3 className="text-white font-semibold mb-2">
+                    Modern tooling
+                  </h3>
+                  <p className="text-gray-300 text-sm">
+                    Supports ESLint v9 and Node.js 20.11.0+
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* Rules Documentation Section */}
+            <section>
+              <h2 className="text-white text-2xl font-semibold mb-6">
+                Configured Rules
+              </h2>
+              <p className="text-gray-300 mb-6">
+                Below is a comprehensive list of all ESLint rules configured by
+                this package:
+              </p>
+              <div className="flex flex-col gap-4">
+                {rules.map((rule) => (
+                  <RuleCard key={rule.id} rule={rule} />
+                ))}
+              </div>
             </section>
           </div>
         </main>

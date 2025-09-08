@@ -84,3 +84,48 @@ export function extractRuleDescription(content: string): string {
 
   return description
 }
+
+export function removeInitialDescription(
+  content: string,
+  description: string,
+): string {
+  if (!description) return content
+
+  // Split content into lines
+  const lines = content.split('\n')
+  let startIndex = 0
+  let foundDescription = false
+
+  // Look for the description in the content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim()
+
+    // Skip empty lines, headings, and frontmatter
+    if (!line || line.startsWith('#') || line === '---') {
+      continue
+    }
+
+    // Check if this line matches the description
+    if (line === description || line.includes(description.substring(0, 50))) {
+      foundDescription = true
+      startIndex = i + 1
+      break
+    }
+
+    // If we've encountered substantial content that doesn't match, stop looking
+    if (line.length > 20) {
+      break
+    }
+  }
+
+  // If description was found, remove it and return the rest
+  if (foundDescription) {
+    // Skip any empty lines after the description
+    while (startIndex < lines.length && !lines[startIndex].trim()) {
+      startIndex++
+    }
+    return lines.slice(startIndex).join('\n')
+  }
+
+  return content
+}

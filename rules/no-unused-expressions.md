@@ -58,12 +58,11 @@ if (0) 0
   0
 }
 
-f(0), {}
+;(f(0), {})
 
 a && b()
-
-a, b()
-;(c = a), b
+;(a, b())
+;((c = a), b)
 
 a() &&
   (function namedFunctionInExpressionContext() {

@@ -19,6 +19,7 @@ import 'highlight.js/styles/github.css'
 import {
   processEslintMarkdown,
   extractRuleDescription,
+  removeInitialDescription,
 } from '@/lib/markdown-utils'
 
 interface RuleCardProps {
@@ -31,8 +32,14 @@ export function RuleCard({ rule }: RuleCardProps) {
   const description =
     rule.frontmatter.description || extractRuleDescription(rule.content)
 
+  // Remove the initial description from content to avoid duplication
+  const contentWithoutDescription = removeInitialDescription(
+    rule.content,
+    description,
+  )
+
   // Process the markdown content to handle ESLint-specific syntax
-  const processedContent = processEslintMarkdown(rule.content)
+  const processedContent = processEslintMarkdown(contentWithoutDescription)
 
   return (
     <Card

@@ -158,7 +158,7 @@ export default async function EslintDocsPage() {
             {/* Installation Section */}
             <section
               id="installation"
-              className="mb-12 glass-clear glass-dimmed glass-border glass-shadow-sm p-6 rounded-glass-lg"
+              className="mb-12 glass-clear glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
               <h2 className="text-black dark:text-white text-2xl font-semibold mb-4">
                 Installation
@@ -169,17 +169,17 @@ export default async function EslintDocsPage() {
                     Install the package using your preferred package manager:
                   </p>
                   <div className="space-y-3">
-                    <div className="bg-black/30 p-3 rounded">
+                    <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded">
                       <code className="text-green-400">
                         pnpm add -D eslint-config-ts-prefixer@latest
                       </code>
                     </div>
-                    <div className="bg-black/30 p-3 rounded">
+                    <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded">
                       <code className="text-green-400">
                         npm install --save-dev eslint-config-ts-prefixer@latest
                       </code>
                     </div>
-                    <div className="bg-black/30 p-3 rounded">
+                    <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded">
                       <code className="text-green-400">
                         yarn add -D eslint-config-ts-prefixer
                       </code>
@@ -192,7 +192,7 @@ export default async function EslintDocsPage() {
             {/* Configuration Section */}
             <section
               id="configuration"
-              className="mb-12 glass-clear glass-dimmed glass-border glass-shadow-sm p-6 rounded-glass-lg"
+              className="mb-12 glass-clear glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
               <h2 className="text-black dark:text-white text-2xl font-semibold mb-4">
                 Configuration
@@ -203,7 +203,7 @@ export default async function EslintDocsPage() {
                     Add to your{' '}
                     <code className="text-blue-400">eslint.config.js</code>:
                   </p>
-                  <div className="bg-black/30 p-4 rounded overflow-x-auto">
+                  <div className="bg-slate-900 dark:bg-slate-950 p-4 rounded overflow-x-auto">
                     <pre className="text-gray-200">
                       {`import { defineConfig } from 'eslint/config'
 import tsPrefixer from 'eslint-config-ts-prefixer'
@@ -217,7 +217,7 @@ export default defineConfig([...tsPrefixer])`}
                     Add lint scripts to your{' '}
                     <code className="text-blue-400">package.json</code>:
                   </p>
-                  <div className="bg-black/30 p-4 rounded overflow-x-auto">
+                  <div className="bg-slate-900 dark:bg-slate-950 p-4 rounded overflow-x-auto">
                     <pre className="text-gray-200">
                       {`{
   "scripts": {

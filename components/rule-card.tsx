@@ -114,7 +114,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               const isInline = !className
               if (isInline) {
                 return (
-                  <code className="px-1.5 py-0.5 rounded text-sm font-mono text-black dark:text-white bg-gray-100 dark:bg-slate-700">
+                  <code className="px-1.5 py-0.5 rounded text-sm font-mono text-black dark:text-white bg-gray-200 dark:bg-slate-700">
                     {children}
                   </code>
                 )
@@ -122,7 +122,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               return <code className={className}>{children}</code>
             },
             pre: ({ children }) => (
-              <pre className="bg-gray-100 dark:bg-slate-800 p-4 rounded-lg overflow-x-auto text-base border border-gray-200 dark:border-slate-700 mb-4">
+              <pre className="bg-gray-200 dark:bg-slate-800 p-4 rounded-lg overflow-x-auto text-base border border-gray-300 dark:border-slate-700 mb-4">
                 {children}
               </pre>
             ),

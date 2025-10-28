@@ -49,7 +49,7 @@ export function RuleCard({ rule }: RuleCardProps) {
       className="scroll-mt-24 glass-clear glass-dimmed glass-border glass-shadow-md rounded-glass-lg glass-transition hover:glass-shadow-lg hover:-translate-y-1"
     >
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-primary vibrancy-primary">
+        <CardTitle className="text-2xl font-semibold text-primary dark:text-white vibrancy-primary">
           <HeadingAnchor id={rule.id} as="div">
             {title}
           </HeadingAnchor>
@@ -64,7 +64,7 @@ export function RuleCard({ rule }: RuleCardProps) {
             )}
         </div>
         {description && (
-          <CardDescription className="text-primary text-lg pt-2 line-clamp-3 vibrancy-secondary">
+          <CardDescription className="text-primary dark:text-white text-lg pt-2 line-clamp-3 vibrancy-secondary">
             {description}
           </CardDescription>
         )}
@@ -82,7 +82,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               <HeadingAnchor
                 id={slugify(String(children))}
                 as="h1"
-                className="text-2xl font-bold text-foreground mb-4 mt-6 first:mt-0"
+                className="text-2xl font-bold text-foreground dark:text-white mb-4 mt-6 first:mt-0"
               >
                 {children}
               </HeadingAnchor>
@@ -91,7 +91,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               <HeadingAnchor
                 id={slugify(String(children))}
                 as="h2"
-                className="text-xl font-semibold text-foreground mb-3 mt-5 first:mt-0"
+                className="text-xl font-semibold text-foreground dark:text-white mb-3 mt-5 first:mt-0"
               >
                 {children}
               </HeadingAnchor>
@@ -100,13 +100,13 @@ export function RuleCard({ rule }: RuleCardProps) {
               <HeadingAnchor
                 id={slugify(String(children))}
                 as="h3"
-                className="text-lg font-medium text-foreground mb-2 mt-4 first:mt-0"
+                className="text-lg font-medium text-foreground dark:text-white mb-2 mt-4 first:mt-0"
               >
                 {children}
               </HeadingAnchor>
             ),
             p: ({ children }) => (
-              <p className="text-muted-foreground mb-3 leading-relaxed">
+              <p className="text-muted-foreground dark:text-white mb-3 leading-relaxed">
                 {children}
               </p>
             ),
@@ -114,7 +114,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               const isInline = !className
               if (isInline) {
                 return (
-                  <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground">
+                  <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground dark:text-white">
                     {children}
                   </code>
                 )
@@ -127,7 +127,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               </pre>
             ),
             blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground">
+              <blockquote className="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground dark:text-white">
                 {children}
               </blockquote>
             ),
@@ -138,7 +138,9 @@ export function RuleCard({ rule }: RuleCardProps) {
               <ol className="list-decimal pl-6 mb-4 space-y-1">{children}</ol>
             ),
             li: ({ children }) => (
-              <li className="text-muted-foreground">{children}</li>
+              <li className="text-muted-foreground dark:text-white">
+                {children}
+              </li>
             ),
             table: ({ children }) => (
               <div className="overflow-x-auto mb-4">

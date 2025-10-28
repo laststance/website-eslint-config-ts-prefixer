@@ -8,10 +8,19 @@
   padding: 1rem;
 }
 
-/* Dark mode adjustments for syntax highlighting */
+/* Light mode: slightly darker background for better contrast */
+@media (prefers-color-scheme: light) {
+  .hljs {
+    background: hsl(210 40% 94%) !important;
+    color: hsl(222.2 84% 4.9%) !important;
+  }
+}
+
+/* Dark mode: sufficiently light background for better text contrast (WCAG AA+) */
 @media (prefers-color-scheme: dark) {
   .hljs {
-    background: hsl(var(--muted)) !important;
+    background: hsl(217.2 32.6% 25%) !important;
+    color: hsl(210 40% 98%) !important;
   }
 
   .hljs-keyword,
@@ -120,19 +129,19 @@
 /* Dark mode for ESLint blocks */
 [data-theme='dark'] .eslint-block.incorrect,
 .dark .eslint-block.incorrect {
-  background-color: rgb(127 29 29 / 0.2);
-  border-color: rgb(185 28 28);
+  background-color: rgb(127 29 29 / 0.3);
+  border-color: rgb(239 68 68);
 }
 
 [data-theme='dark'] .eslint-block.incorrect .eslint-block-header,
 .dark .eslint-block.incorrect .eslint-block-header {
-  color: rgb(252 165 165);
+  color: rgb(254 87 87);
 }
 
 [data-theme='dark'] .eslint-block.correct,
 .dark .eslint-block.correct {
-  background-color: rgb(20 83 45 / 0.2);
-  border-color: rgb(22 101 52);
+  background-color: rgb(20 83 45 / 0.3);
+  border-color: rgb(74 222 128);
 }
 
 [data-theme='dark'] .eslint-block.correct .eslint-block-header,

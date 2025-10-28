@@ -231,47 +231,6 @@ export default defineConfig([...tsPrefixer])`}
               </div>
             </section>
 
-            {/* Features Section */}
-            <section id="features" className="mb-12">
-              <h2 className="text-black dark:text-white text-2xl font-semibold mb-6">
-                Key Features
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
-                  <h3 className="font-semibold mb-2 vibrancy-primary">
-                    Zero-config approach
-                  </h3>
-                  <p className="text-sm vibrancy-secondary">
-                    Explicit rules configuration with sensible defaults
-                  </p>
-                </div>
-                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
-                  <h3 className="font-semibold mb-2 vibrancy-primary">
-                    Prettier integration
-                  </h3>
-                  <p className="text-sm vibrancy-secondary">
-                    Works seamlessly with your existing .prettierrc
-                  </p>
-                </div>
-                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
-                  <h3 className="font-semibold mb-2 vibrancy-primary">
-                    TypeScript first
-                  </h3>
-                  <p className="text-sm vibrancy-secondary">
-                    Built for TypeScript v5+ projects
-                  </p>
-                </div>
-                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
-                  <h3 className="font-semibold mb-2 vibrancy-primary">
-                    Modern tooling
-                  </h3>
-                  <p className="text-sm vibrancy-secondary">
-                    Supports ESLint v9 and Node.js 20.11.0+
-                  </p>
-                </div>
-              </div>
-            </section>
-
             {/* Rules Documentation Section */}
             <section>
               <h2 className="text-black dark:text-white text-2xl font-semibold mb-6">

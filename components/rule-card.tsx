@@ -44,10 +44,10 @@ export function RuleCard({ rule }: RuleCardProps) {
   return (
     <Card
       id={rule.id}
-      className="scroll-mt-24 bg-card/80 dark:bg-card/70 backdrop-blur-sm shadow-xl border"
+      className="scroll-mt-24 glass-clear glass-dimmed glass-border glass-shadow-md rounded-glass-lg glass-transition hover:glass-shadow-lg hover:-translate-y-1"
     >
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-primary">
+        <CardTitle className="text-2xl font-semibold text-primary vibrancy-primary">
           {title}
         </CardTitle>
         <div className="flex flex-wrap gap-2 pt-1">
@@ -60,7 +60,7 @@ export function RuleCard({ rule }: RuleCardProps) {
             )}
         </div>
         {description && (
-          <CardDescription className="text-primary text-lg pt-2 line-clamp-3">
+          <CardDescription className="text-primary text-lg pt-2 line-clamp-3 vibrancy-secondary">
             {description}
           </CardDescription>
         )}

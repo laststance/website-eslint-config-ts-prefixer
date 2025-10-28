@@ -73,6 +73,18 @@ const config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        glass: '16px', // Apple liquid glass standard
+        'glass-lg': '20px',
+        'glass-xl': '24px',
+      },
+      backdropBlur: {
+        glass: '20px',
+        'glass-sm': '15px',
+        'glass-lg': '25px',
+        'glass-xl': '30px',
+      },
+      backdropSaturate: {
+        glass: '180%',
       },
       keyframes: {
         'accordion-down': {

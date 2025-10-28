@@ -87,3 +87,287 @@
 }
 
 @import '../styles/markdown.css';
+
+/* ============================================
+   Apple Liquid Glass UI System
+   Based on Apple Human Interface Guidelines 2025
+   ============================================ */
+
+@layer utilities {
+  /* Material Thickness Variants */
+  .glass-ultra-thin {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+  }
+
+  .glass-thin {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+  }
+
+  .glass-medium {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  .glass-thick {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+  }
+
+  .glass-ultra-thick {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+  }
+
+  /* Dark Mode Variants */
+  .dark .glass-ultra-thin {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .glass-thin {
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  .dark .glass-medium {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .glass-thick {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .dark .glass-ultra-thick {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Vibrancy Levels for Text */
+  .vibrancy-primary {
+    opacity: 1;
+    color: hsl(var(--foreground));
+  }
+
+  .vibrancy-secondary {
+    opacity: 0.8;
+    color: hsl(var(--foreground));
+  }
+
+  .vibrancy-tertiary {
+    opacity: 0.6;
+    color: hsl(var(--foreground));
+  }
+
+  .vibrancy-divider {
+    opacity: 0.3;
+    color: hsl(var(--foreground));
+  }
+
+  /* Glass Border Styles */
+  .glass-border {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Three-Layer Glass System */
+  .glass-layered {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-layered::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .dark .glass-layered::before {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  /* Tinted Glass for Primary Actions */
+  .glass-tinted-blue {
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.2),
+      rgba(96, 165, 250, 0.15)
+    );
+  }
+
+  .dark .glass-tinted-blue {
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.25),
+      rgba(96, 165, 250, 0.2)
+    );
+  }
+
+  /* Clear Glass for Content Layers */
+  .glass-clear {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  .dark .glass-clear {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dimming Layer for Legibility */
+  .glass-dimmed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .dark .glass-dimmed::after {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dynamic Shadows */
+  .glass-shadow-sm {
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .glass-shadow-sm {
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-shadow-md {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .dark .glass-shadow-md {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-shadow-lg {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .dark .glass-shadow-lg {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Glass Transitions */
+  .glass-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mobile Optimization - Reduced Blur */
+  @media (max-width: 768px) {
+    .glass-ultra-thin,
+    .glass-thin,
+    .glass-medium,
+    .glass-thick,
+    .glass-ultra-thick,
+    .glass-clear {
+      backdrop-filter: blur(15px) saturate(160%);
+      -webkit-backdrop-filter: blur(15px) saturate(160%);
+    }
+  }
+}
+
+/* Accessibility: Reduce Transparency Support */
+@media (prefers-reduced-transparency: reduce) {
+  .glass-ultra-thin,
+  .glass-thin,
+  .glass-medium,
+  .glass-thick,
+  .glass-ultra-thick,
+  .glass-clear {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .dark .glass-ultra-thin,
+  .dark .glass-thin,
+  .dark .glass-medium,
+  .dark .glass-thick,
+  .dark .glass-ultra-thick,
+  .dark .glass-clear {
+    background: rgba(30, 30, 30, 0.95);
+  }
+}
+
+/* Accessibility: Reduce Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .glass-transition {
+    transition: none;
+  }
+
+  .glass-layered::before {
+    animation: none;
+  }
+}
+
+/* Performance: GPU Acceleration */
+.glass-ultra-thin,
+.glass-thin,
+.glass-medium,
+.glass-thick,
+.glass-ultra-thick,
+.glass-clear {
+  transform: translateZ(0);
+  will-change: backdrop-filter;
+}
+
+/* Progressive Enhancement */
+@supports not (backdrop-filter: blur(20px)) {
+  .glass-ultra-thin,
+  .glass-thin,
+  .glass-medium,
+  .glass-thick,
+  .glass-ultra-thick,
+  .glass-clear {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .dark .glass-ultra-thin,
+  .dark .glass-thin,
+  .dark .glass-medium,
+  .dark .glass-thick,
+  .dark .glass-ultra-thick,
+  .dark .glass-clear {
+    background: rgba(30, 30, 30, 0.9);
+  }
+}

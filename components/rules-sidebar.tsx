@@ -26,11 +26,11 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
   )
 
   return (
-    <aside className="w-full md:fixed md:left-0 md:top-16 md:w-72 md:h-[calc(100vh-4rem)] bg-card/80 dark:bg-card/70 backdrop-blur-md p-4 shadow-lg z-40 border-r">
+    <aside className="w-full md:fixed md:left-0 md:top-16 md:w-72 md:h-[calc(100vh-4rem)] glass-thick glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
       <nav className="space-y-6">
         {/* Quick Navigation */}
         <div className="space-y-1">
-          <h3 className="text-sm font-semibold text-muted-foreground px-2 mb-2">
+          <h3 className="text-sm font-semibold px-2 mb-2 vibrancy-secondary">
             Getting Started
           </h3>
           <Button
@@ -67,7 +67,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
 
         {/* Rules Section */}
         <div>
-          <h3 className="text-sm font-semibold text-muted-foreground px-2 mb-2 flex items-center gap-2">
+          <h3 className="text-sm font-semibold px-2 mb-2 flex items-center gap-2 vibrancy-secondary">
             <FileText className="h-4 w-4" />
             Configured Rules
           </h3>

@@ -88,7 +88,7 @@ export default async function EslintDocsPage() {
       <div className="flex items-center justify-center min-h-screen p-4">
         <Alert
           variant="destructive"
-          className="max-w-lg bg-card/80 backdrop-blur-sm"
+          className="max-w-lg glass-medium glass-border glass-shadow-md rounded-glass-lg"
         >
           <AlertTriangle className="h-4 w-4" />
           <AlertTitle>Error Loading Rules</AlertTitle>
@@ -120,7 +120,7 @@ export default async function EslintDocsPage() {
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#installation"
-                  className="inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center px-5 py-2.5 glass-thin glass-tinted-blue glass-border rounded-glass font-medium glass-transition hover:glass-medium hover:scale-105 vibrancy-primary"
                 >
                   Get Started
                 </a>
@@ -128,7 +128,7 @@ export default async function EslintDocsPage() {
                   href="https://github.com/laststance/eslint-config-ts-prefixer"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-5 py-2.5 bg-card/50 text-foreground font-medium rounded-lg hover:bg-card/70 transition-colors border border-border"
+                  className="inline-flex items-center px-5 py-2.5 glass-thin glass-border rounded-glass font-medium glass-transition hover:glass-medium hover:scale-105 vibrancy-primary"
                 >
                   View on GitHub
                 </a>
@@ -138,7 +138,7 @@ export default async function EslintDocsPage() {
             {/* Installation Section */}
             <section
               id="installation"
-              className="mb-12 bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-border"
+              className="mb-12 glass-clear glass-dimmed glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
               <h2 className="text-white text-2xl font-semibold mb-4">
                 Installation
@@ -172,7 +172,7 @@ export default async function EslintDocsPage() {
             {/* Configuration Section */}
             <section
               id="configuration"
-              className="mb-12 bg-card/50 backdrop-blur-sm p-6 rounded-lg border border-border"
+              className="mb-12 glass-clear glass-dimmed glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
               <h2 className="text-white text-2xl font-semibold mb-4">
                 Configuration
@@ -217,35 +217,35 @@ export default defineConfig([...tsPrefixer])`}
                 Key Features
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
-                  <h3 className="text-white font-semibold mb-2">
+                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
+                  <h3 className="font-semibold mb-2 vibrancy-primary">
                     Zero-config approach
                   </h3>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-sm vibrancy-secondary">
                     Explicit rules configuration with sensible defaults
                   </p>
                 </div>
-                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
-                  <h3 className="text-white font-semibold mb-2">
+                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
+                  <h3 className="font-semibold mb-2 vibrancy-primary">
                     Prettier integration
                   </h3>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-sm vibrancy-secondary">
                     Works seamlessly with your existing .prettierrc
                   </p>
                 </div>
-                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
-                  <h3 className="text-white font-semibold mb-2">
+                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
+                  <h3 className="font-semibold mb-2 vibrancy-primary">
                     TypeScript first
                   </h3>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-sm vibrancy-secondary">
                     Built for TypeScript v5+ projects
                   </p>
                 </div>
-                <div className="bg-card/50 backdrop-blur-sm p-4 rounded-lg border border-border">
-                  <h3 className="text-white font-semibold mb-2">
+                <div className="glass-clear glass-dimmed glass-border glass-shadow-sm p-4 rounded-glass glass-transition hover:glass-shadow-md hover:-translate-y-0.5">
+                  <h3 className="font-semibold mb-2 vibrancy-primary">
                     Modern tooling
                   </h3>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-sm vibrancy-secondary">
                     Supports ESLint v9 and Node.js 20.11.0+
                   </p>
                 </div>

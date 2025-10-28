@@ -17,8 +17,9 @@ interface HeadingAnchorProps {
 /**
  * HeadingAnchor Component
  *
- * Wraps heading content with an anchor link that appears on hover.
- * Clicking the link copies the URL with hash fragment to clipboard.
+ * Wraps heading content with an anchor link that navigates to the section.
+ * Also provides a hover icon that copies the URL with hash fragment to clipboard.
+ * Clicking the heading navigates to the hash, while the icon copies the link.
  * Follows Apple Liquid Glass design system with full accessibility support.
  *
  * @example
@@ -50,6 +51,26 @@ export function HeadingAnchor({
 
   return (
     <Component id={id} className={cn('group relative scroll-mt-24', className)}>
+      <a
+        href={`#${id}`}
+        className={cn(
+          // Make heading content clickable for navigation
+          'no-underline cursor-pointer',
+          'text-inherit',
+
+          // Hover and focus states
+          'glass-transition',
+          'hover:opacity-80',
+
+          // Accessibility
+          'focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2',
+          'rounded-sm',
+        )}
+        aria-label={`Navigate to ${String(children)}`}
+      >
+        {children}
+      </a>
+
       <button
         onClick={handleCopyLink}
         aria-label={copied ? 'Link copied!' : 'Copy link to this section'}
@@ -90,8 +111,6 @@ export function HeadingAnchor({
           {copied ? 'Link copied to clipboard' : 'Copy link'}
         </span>
       </button>
-
-      {children}
     </Component>
   )
 }

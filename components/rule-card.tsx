@@ -21,6 +21,8 @@ import {
   extractRuleDescription,
   removeInitialDescription,
 } from '@/lib/markdown-utils'
+import { HeadingAnchor } from '@/components/heading-anchor'
+import { slugify } from '@/lib/slugify'
 
 interface RuleCardProps {
   rule: EslintRule
@@ -48,7 +50,9 @@ export function RuleCard({ rule }: RuleCardProps) {
     >
       <CardHeader>
         <CardTitle className="text-2xl font-semibold text-primary vibrancy-primary">
-          {title}
+          <HeadingAnchor id={rule.id} as="div">
+            {title}
+          </HeadingAnchor>
         </CardTitle>
         <div className="flex flex-wrap gap-2 pt-1">
           {rule.pluginName && rule.pluginName !== 'N/A' && (
@@ -75,19 +79,31 @@ export function RuleCard({ rule }: RuleCardProps) {
           components={{
             // Custom styling for different markdown elements
             h1: ({ children }) => (
-              <h1 className="text-2xl font-bold text-foreground mb-4 mt-6 first:mt-0">
+              <HeadingAnchor
+                id={slugify(String(children))}
+                as="h1"
+                className="text-2xl font-bold text-foreground mb-4 mt-6 first:mt-0"
+              >
                 {children}
-              </h1>
+              </HeadingAnchor>
             ),
             h2: ({ children }) => (
-              <h2 className="text-xl font-semibold text-foreground mb-3 mt-5 first:mt-0">
+              <HeadingAnchor
+                id={slugify(String(children))}
+                as="h2"
+                className="text-xl font-semibold text-foreground mb-3 mt-5 first:mt-0"
+              >
                 {children}
-              </h2>
+              </HeadingAnchor>
             ),
             h3: ({ children }) => (
-              <h3 className="text-lg font-medium text-foreground mb-2 mt-4 first:mt-0">
+              <HeadingAnchor
+                id={slugify(String(children))}
+                as="h3"
+                className="text-lg font-medium text-foreground mb-2 mt-4 first:mt-0"
+              >
                 {children}
-              </h3>
+              </HeadingAnchor>
             ),
             p: ({ children }) => (
               <p className="text-muted-foreground mb-3 leading-relaxed">

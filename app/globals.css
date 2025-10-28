@@ -125,25 +125,35 @@
     -webkit-backdrop-filter: blur(30px) saturate(180%);
   }
 
-  /* Dark Mode Variants */
+  /* Dark Mode Variants - Iteration 3: Further enhanced opacity and blur for better text contrast */
   .dark .glass-ultra-thin {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
   }
 
   .dark .glass-thin {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
   }
 
   .dark .glass-medium {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
   }
 
   .dark .glass-thick {
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(36px) saturate(180%);
+    -webkit-backdrop-filter: blur(36px) saturate(180%);
   }
 
   .dark .glass-ultra-thick {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
   }
 
   /* Vibrancy Levels for Text */
@@ -152,9 +162,21 @@
     color: hsl(var(--foreground));
   }
 
+  .dark .vibrancy-primary {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
   .vibrancy-secondary {
     opacity: 0.8;
     color: hsl(var(--foreground));
+  }
+
+  .dark .vibrancy-secondary {
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.35);
   }
 
   .vibrancy-tertiary {
@@ -162,9 +184,49 @@
     color: hsl(var(--foreground));
   }
 
+  .dark .vibrancy-tertiary {
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
   .vibrancy-divider {
     opacity: 0.3;
     color: hsl(var(--foreground));
+  }
+
+  /* Enhanced text readability for white text on dark theme backgrounds */
+  /* Subtle text shadow: lighter halo effect for improved legibility without being too heavy */
+  .dark .text-white {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .text-gray-300 {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  .dark .text-gray-200 {
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Code blocks and colored text should not have text-shadow */
+  .dark code,
+  .dark pre,
+  .dark .text-red-400,
+  .dark .text-red-500,
+  .dark .text-green-400,
+  .dark .text-green-500,
+  .dark .text-blue-400,
+  .dark .text-blue-500,
+  .dark .text-yellow-400,
+  .dark .text-yellow-500 {
+    text-shadow: none;
   }
 
   /* Glass Border Styles */
@@ -227,13 +289,15 @@
 
   /* Clear Glass for Content Layers */
   .glass-clear {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
 
   .dark .glass-clear {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
   }
 
   /* Dimming Layer for Legibility */
@@ -241,13 +305,24 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: inherit;
     pointer-events: none;
   }
 
   .dark .glass-dimmed::after {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Light theme text enhancement for readability on glass backgrounds */
+  .text-gray-900,
+  .text-gray-800 {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+
+  .dark .text-gray-900,
+  .dark .text-gray-800 {
+    text-shadow: none;
   }
 
   /* Dynamic Shadows */
@@ -259,8 +334,9 @@
 
   .dark .glass-shadow-sm {
     box-shadow:
-      0 4px 16px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
   .glass-shadow-md {
@@ -271,8 +347,9 @@
 
   .dark .glass-shadow-md {
     box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
   .glass-shadow-lg {
@@ -283,8 +360,9 @@
 
   .dark .glass-shadow-lg {
     box-shadow:
-      0 12px 48px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 12px 48px rgba(0, 0, 0, 0.7),
+      0 6px 24px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
   }
 
   /* Glass Transitions */

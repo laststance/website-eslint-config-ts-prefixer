@@ -10,6 +10,7 @@
  * - Performance optimization (GPU acceleration, mobile optimization)
  */
 
+import type React from 'react'
 import { cn } from '@/lib/utils'
 import {
   type GlassConfig,
@@ -56,7 +57,7 @@ interface LiquidGlassProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * HTML element type
    */
-  as?: keyof JSX.IntrinsicElements
+  as?: React.ElementType
 }
 
 export function LiquidGlass({

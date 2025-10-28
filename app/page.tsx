@@ -130,10 +130,10 @@ export default async function EslintDocsPage() {
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
             <section className="mb-12">
-              <h1 className="text-gray-900 dark:text-white text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-black dark:text-white text-4xl md:text-5xl font-bold mb-4">
                 eslint-config-ts-prefixer
               </h1>
-              <p className="text-gray-800 dark:text-gray-300 text-lg md:text-xl mb-8">
+              <p className="text-black dark:text-gray-300 text-lg md:text-xl mb-8">
                 A zero-config TypeScript ESLint configuration with Prettier
                 integration
               </p>
@@ -160,12 +160,12 @@ export default async function EslintDocsPage() {
               id="installation"
               className="mb-12 glass-clear glass-dimmed glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
-              <h2 className="text-gray-900 dark:text-white text-2xl font-semibold mb-4">
+              <h2 className="text-black dark:text-white text-2xl font-semibold mb-4">
                 Installation
               </h2>
               <div className="space-y-4">
                 <div>
-                  <p className="text-gray-800 dark:text-gray-300 mb-3">
+                  <p className="text-black dark:text-gray-300 mb-3">
                     Install the package using your preferred package manager:
                   </p>
                   <div className="space-y-3">
@@ -194,12 +194,12 @@ export default async function EslintDocsPage() {
               id="configuration"
               className="mb-12 glass-clear glass-dimmed glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
-              <h2 className="text-gray-900 dark:text-white text-2xl font-semibold mb-4">
+              <h2 className="text-black dark:text-white text-2xl font-semibold mb-4">
                 Configuration
               </h2>
               <div className="space-y-4">
                 <div>
-                  <p className="text-gray-800 dark:text-gray-300 mb-3">
+                  <p className="text-black dark:text-gray-300 mb-3">
                     Add to your{' '}
                     <code className="text-blue-400">eslint.config.js</code>:
                   </p>
@@ -233,7 +233,7 @@ export default defineConfig([...tsPrefixer])`}
 
             {/* Features Section */}
             <section id="features" className="mb-12">
-              <h2 className="text-gray-900 dark:text-white text-2xl font-semibold mb-6">
+              <h2 className="text-black dark:text-white text-2xl font-semibold mb-6">
                 Key Features
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -274,10 +274,10 @@ export default defineConfig([...tsPrefixer])`}
 
             {/* Rules Documentation Section */}
             <section>
-              <h2 className="text-gray-900 dark:text-white text-2xl font-semibold mb-6">
+              <h2 className="text-black dark:text-white text-2xl font-semibold mb-6">
                 Configured Rules
               </h2>
-              <p className="text-gray-800 dark:text-gray-300 mb-6">
+              <p className="text-black dark:text-gray-300 mb-6">
                 Below is a comprehensive list of all ESLint rules configured by
                 this package:
               </p>

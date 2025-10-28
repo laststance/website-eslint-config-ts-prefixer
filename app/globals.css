@@ -159,7 +159,6 @@
   /* Vibrancy Levels for Text */
   .vibrancy-primary {
     opacity: 1;
-    color: hsl(var(--foreground));
   }
 
   .dark .vibrancy-primary {
@@ -169,8 +168,7 @@
   }
 
   .vibrancy-secondary {
-    opacity: 0.8;
-    color: hsl(var(--foreground));
+    opacity: 1;
   }
 
   .dark .vibrancy-secondary {
@@ -180,8 +178,7 @@
   }
 
   .vibrancy-tertiary {
-    opacity: 0.6;
-    color: hsl(var(--foreground));
+    opacity: 1;
   }
 
   .dark .vibrancy-tertiary {
@@ -192,7 +189,6 @@
 
   .vibrancy-divider {
     opacity: 0.3;
-    color: hsl(var(--foreground));
   }
 
   /* Enhanced text readability for white text on dark theme backgrounds */
@@ -289,7 +285,7 @@
 
   /* Clear Glass for Content Layers */
   .glass-clear {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
@@ -305,7 +301,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background: transparent;
     border-radius: inherit;
     pointer-events: none;
   }
@@ -316,13 +312,25 @@
 
   /* Light theme text enhancement for readability on glass backgrounds */
   .text-gray-900,
-  .text-gray-800 {
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  .text-gray-800,
+  .text-black {
+    color: #000000;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
   }
 
   .dark .text-gray-900,
   .dark .text-gray-800 {
-    text-shadow: none;
+    color: inherit;
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .text-black {
+    color: #ffffff;
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.4);
   }
 
   /* Dynamic Shadows */

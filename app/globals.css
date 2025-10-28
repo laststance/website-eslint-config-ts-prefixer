@@ -80,6 +80,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-family: Arial, Helvetica, sans-serif;
   }
   html {
     scroll-behavior: smooth;
@@ -94,6 +95,11 @@
    ============================================ */
 
 @layer utilities {
+  /* Text Balance Utility */
+  .text-balance {
+    text-wrap: balance;
+  }
+
   /* Material Thickness Variants */
   .glass-ultra-thin {
     background: rgba(255, 255, 255, 0.1);

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "typecheck": "tsc",
     "test": "playwright test --reporter=list",
     "test:headed": "playwright test --headed --reporter=list",
@@ -73,10 +73,14 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^16.0.0",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "code-inspector-plugin": "^1.2.10",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "^16.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
     "postcss": "^8.5.6",

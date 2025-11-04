@@ -96,6 +96,14 @@ async function getEslintRules(): Promise<EslintRule[]> {
       return sortedRules.slice(0, limitedCount)
     }
 
+    if (env.NEXT_PUBLIC_LIMIT_RULES === 'minimal') {
+      const limitedCount = 2
+      console.log(
+        `[DEV MODE] Limiting rules from ${sortedRules.length} to ${limitedCount} (2 rules) for extreme minimal context usage`,
+      )
+      return sortedRules.slice(0, limitedCount)
+    }
+
     return sortedRules
   } catch (error) {
     console.error('Error reading ESLint rule files:', error)

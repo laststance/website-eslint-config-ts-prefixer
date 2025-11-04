@@ -19,10 +19,10 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_LIMIT_RULES: z
-      .enum(['full', 'third', 'sixth'])
+      .enum(['full', 'third', 'sixth', 'minimal'])
       .default('full')
       .describe(
-        'Limit the number of rules displayed. "third" shows only 1/3 of rules, "sixth" shows only 1/6 of rules for development to reduce page size.',
+        'Limit the number of rules displayed. "third" shows only 1/3 of rules, "sixth" shows only 1/6 of rules, "minimal" shows only 2 rules for development to reduce page size.',
       ),
   },
 

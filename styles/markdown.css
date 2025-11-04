@@ -1,93 +1,32 @@
 /* Custom styles for markdown content */
 
-/* Override highlight.js styles for better theme integration */
+/* Import highlight.js themes with proper media queries */
+@import 'highlight.js/styles/github.css' screen and
+  (prefers-color-scheme: light);
+@import 'highlight.js/styles/github-dark.css' screen and
+  (prefers-color-scheme: dark);
+
+/* Enhanced code block styling for better readability */
 .hljs {
-  background: hsl(var(--muted)) !important;
-  color: hsl(var(--muted-foreground)) !important;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 1rem !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* Light mode: slightly darker background for better contrast */
+/* Light mode: Enhanced background for better contrast */
 @media (prefers-color-scheme: light) {
   .hljs {
-    background: hsl(210 40% 94%) !important;
-    color: hsl(222.2 84% 4.9%) !important;
+    background: #f6f8fa !important;
+    border: 1px solid #d0d7de;
   }
 }
 
-/* Dark mode: sufficiently light background for better text contrast (WCAG AA+) */
+/* Dark mode: Enhanced background for better contrast */
 @media (prefers-color-scheme: dark) {
   .hljs {
-    background: hsl(217.2 32.6% 25%) !important;
-    color: hsl(210 40% 98%) !important;
-  }
-
-  .hljs-keyword,
-  .hljs-selector-tag,
-  .hljs-literal,
-  .hljs-strong,
-  .hljs-name {
-    color: #ff6b6b;
-  }
-
-  .hljs-string,
-  .hljs-number {
-    color: #51cf66;
-  }
-
-  .hljs-comment,
-  .hljs-quote {
-    color: #868e96;
-    font-style: italic;
-  }
-
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-tag .hljs-attr,
-  .hljs-regexp {
-    color: #ffd43b;
-  }
-
-  .hljs-function,
-  .hljs-title,
-  .hljs-section {
-    color: #74c0fc;
-  }
-}
-
-/* Light mode adjustments */
-@media (prefers-color-scheme: light) {
-  .hljs-keyword,
-  .hljs-selector-tag,
-  .hljs-literal,
-  .hljs-strong,
-  .hljs-name {
-    color: #d73a49;
-  }
-
-  .hljs-string,
-  .hljs-number {
-    color: #28a745;
-  }
-
-  .hljs-comment,
-  .hljs-quote {
-    color: #6a737d;
-    font-style: italic;
-  }
-
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-tag .hljs-attr,
-  .hljs-regexp {
-    color: #e36209;
-  }
-
-  .hljs-function,
-  .hljs-title,
-  .hljs-section {
-    color: #005cc5;
+    background: #161b22 !important;
+    border: 1px solid #30363d;
   }
 }
 

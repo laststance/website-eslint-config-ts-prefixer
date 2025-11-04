@@ -15,7 +15,6 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeRaw from 'rehype-raw'
-import 'highlight.js/styles/github.css'
 import {
   processEslintMarkdown,
   extractRuleDescription,
@@ -122,7 +121,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               return <code className={className}>{children}</code>
             },
             pre: ({ children }) => (
-              <pre className="bg-gray-100 dark:bg-black/20 p-4 rounded-lg overflow-x-auto text-base border border-gray-300 dark:border-white/10 mb-4">
+              <pre className="bg-[#f6f8fa] dark:bg-[#161b22] p-4 rounded-lg overflow-x-auto text-base border border-[#d0d7de] dark:border-[#30363d] mb-4">
                 {children}
               </pre>
             ),

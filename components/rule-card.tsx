@@ -49,7 +49,7 @@ export function RuleCard({ rule }: RuleCardProps) {
       className="scroll-mt-24 glass-clear glass-border glass-shadow-sm rounded-glass-lg transition-all duration-200 hover:glass-shadow-md hover:-translate-y-1"
     >
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-white">
+        <CardTitle className="text-2xl font-semibold text-black dark:text-white">
           <HeadingAnchor id={rule.id} as="div">
             {title}
           </HeadingAnchor>
@@ -64,7 +64,7 @@ export function RuleCard({ rule }: RuleCardProps) {
             )}
         </div>
         {description && (
-          <CardDescription className="text-white/90 text-lg pt-2 line-clamp-3">
+          <CardDescription className="text-gray-800 dark:text-gray-300 text-lg pt-2 line-clamp-3">
             {description}
           </CardDescription>
         )}
@@ -82,7 +82,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               <HeadingAnchor
                 id={slugify(String(children))}
                 as="h1"
-                className="text-2xl font-bold text-white mb-4 mt-6 first:mt-0"
+                className="text-2xl font-bold text-black dark:text-white mb-4 mt-6 first:mt-0"
               >
                 {children}
               </HeadingAnchor>
@@ -91,7 +91,7 @@ export function RuleCard({ rule }: RuleCardProps) {
               <HeadingAnchor
                 id={slugify(String(children))}
                 as="h2"
-                className="text-xl font-semibold text-white mb-3 mt-5 first:mt-0"
+                className="text-xl font-semibold text-black dark:text-white mb-3 mt-5 first:mt-0"
               >
                 {children}
               </HeadingAnchor>
@@ -100,19 +100,21 @@ export function RuleCard({ rule }: RuleCardProps) {
               <HeadingAnchor
                 id={slugify(String(children))}
                 as="h3"
-                className="text-lg font-medium text-white mb-2 mt-4 first:mt-0"
+                className="text-lg font-medium text-black dark:text-white mb-2 mt-4 first:mt-0"
               >
                 {children}
               </HeadingAnchor>
             ),
             p: ({ children }) => (
-              <p className="text-white/90 mb-3 leading-relaxed">{children}</p>
+              <p className="text-gray-800 dark:text-gray-300 mb-3 leading-relaxed">
+                {children}
+              </p>
             ),
             code: ({ children, className }) => {
               const isInline = !className
               if (isInline) {
                 return (
-                  <code className="px-1.5 py-0.5 rounded text-sm font-mono bg-white/10 text-white">
+                  <code className="px-1.5 py-0.5 rounded text-sm font-mono bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white">
                     {children}
                   </code>
                 )
@@ -120,26 +122,28 @@ export function RuleCard({ rule }: RuleCardProps) {
               return <code className={className}>{children}</code>
             },
             pre: ({ children }) => (
-              <pre className="bg-black/20 p-4 rounded-lg overflow-x-auto text-base border border-white/10 mb-4">
+              <pre className="bg-gray-100 dark:bg-black/20 p-4 rounded-lg overflow-x-auto text-base border border-gray-300 dark:border-white/10 mb-4">
                 {children}
               </pre>
             ),
             blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-white/30 pl-4 my-4 italic text-white/90">
+              <blockquote className="border-l-4 border-gray-400 dark:border-white/30 pl-4 my-4 italic text-gray-800 dark:text-gray-300">
                 {children}
               </blockquote>
             ),
             ul: ({ children }) => (
-              <ul className="list-disc pl-6 mb-4 space-y-1 text-white/90">
+              <ul className="list-disc pl-6 mb-4 space-y-1 text-gray-800 dark:text-gray-300">
                 {children}
               </ul>
             ),
             ol: ({ children }) => (
-              <ol className="list-decimal pl-6 mb-4 space-y-1 text-white/90">
+              <ol className="list-decimal pl-6 mb-4 space-y-1 text-gray-800 dark:text-gray-300">
                 {children}
               </ol>
             ),
-            li: ({ children }) => <li className="text-white/90">{children}</li>,
+            li: ({ children }) => (
+              <li className="text-gray-800 dark:text-gray-300">{children}</li>
+            ),
             table: ({ children }) => (
               <div className="overflow-x-auto mb-4">
                 <table className="w-full border-collapse border border-border">

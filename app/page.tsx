@@ -1,6 +1,7 @@
 import { RulesSidebar } from '@/components/rules-sidebar'
 import { RuleCard } from '@/components/rule-card'
 import { Header } from '@/components/header'
+import { CodeBlockWithCopy } from '@/components/code-block-with-copy'
 import type { EslintRule } from '@/lib/types'
 import { AlertTriangle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -169,21 +170,9 @@ export default async function EslintDocsPage() {
                     Install the package using your preferred package manager:
                   </p>
                   <div className="space-y-3">
-                    <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded">
-                      <code className="text-green-400">
-                        pnpm add -D eslint-config-ts-prefixer@latest
-                      </code>
-                    </div>
-                    <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded">
-                      <code className="text-green-400">
-                        npm install --save-dev eslint-config-ts-prefixer@latest
-                      </code>
-                    </div>
-                    <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded">
-                      <code className="text-green-400">
-                        yarn add -D eslint-config-ts-prefixer
-                      </code>
-                    </div>
+                    <CodeBlockWithCopy code="pnpm add -D eslint-config-ts-prefixer@latest" />
+                    <CodeBlockWithCopy code="npm install --save-dev eslint-config-ts-prefixer@latest" />
+                    <CodeBlockWithCopy code="yarn add -D eslint-config-ts-prefixer" />
                   </div>
                 </div>
               </div>

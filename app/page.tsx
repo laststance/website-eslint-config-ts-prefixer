@@ -1,6 +1,5 @@
 import { RulesSidebar } from '@/components/rules-sidebar'
 import { RuleCard } from '@/components/rule-card'
-import { Header } from '@/components/header'
 import { CodeBlockWithCopy } from '@/components/code-block-with-copy'
 import { PreCodeBlockWithCopy } from '@/components/pre-code-block-with-copy'
 import { HeadingAnchor } from '@/components/heading-anchor'
@@ -134,7 +133,6 @@ export default async function EslintDocsPage() {
 
   return (
     <div className="relative">
-      <Header />
       <div className="lg:flex">
         <RulesSidebar rules={rules} />
         <main className="flex-1 p-4 sm:p-6 lg:p-10 space-y-8 lg:ml-auto min-h-screen">

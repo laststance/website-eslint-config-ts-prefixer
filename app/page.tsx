@@ -133,10 +133,10 @@ export default async function EslintDocsPage() {
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
             <section className="mb-12">
-              <h1 className="text-black dark:text-white text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-white dark:text-white text-4xl md:text-5xl font-bold mb-4">
                 eslint-config-ts-prefixer
               </h1>
-              <p className="text-black dark:text-gray-300 text-lg md:text-xl mb-8">
+              <p className="text-white dark:text-gray-300 text-lg md:text-xl mb-8">
                 A zero-config TypeScript ESLint configuration with Prettier
                 integration
               </p>

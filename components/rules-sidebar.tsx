@@ -6,7 +6,6 @@ import type { EslintRule } from '@/lib/types'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { cn } from '@/lib/utils'
 import { Download, Settings, Sparkles, FileText, Menu } from 'lucide-react'
 
 interface RulesSidebarProps {
@@ -15,6 +14,7 @@ interface RulesSidebarProps {
 
 export function RulesSidebar({ rules }: RulesSidebarProps) {
   const [open, setOpen] = useState(false)
+
   // Group rules by plugin
   const groupedRules = rules.reduce(
     (acc, rule) => {
@@ -108,26 +108,28 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild>
-          <Button
-            variant="outline"
-            size="icon"
-            className="fixed left-4 top-20 z-50 lg:hidden glass-medium glass-border glass-shadow-md"
-          >
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle navigation menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-72 p-0">
-          <div className="glass-thick glass-layered p-4 h-full">
-            <SidebarContent />
-          </div>
-        </SheetContent>
-      </Sheet>
+      {/* Mobile Menu Button - lg未満でのみ表示 */}
+      <div className="lg:hidden">
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button
+              variant="outline"
+              size="icon"
+              className="fixed left-4 bottom-6 z-60 glass-medium glass-border glass-shadow-lg hover:glass-thick"
+            >
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-72 p-0">
+            <div className="glass-thick glass-layered p-4 h-full">
+              <SidebarContent />
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
 
-      {/* Desktop Sidebar */}
+      {/* Desktop Sidebar - lg以上でのみ表示 */}
       <aside className="hidden lg:block lg:fixed lg:left-0 lg:top-16 lg:w-72 lg:h-[calc(100vh-4rem)] glass-thick glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
         <SidebarContent />
       </aside>

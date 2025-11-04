@@ -55,16 +55,6 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
             Configuration
           </Link>
         </Button>
-        <Button
-          variant="ghost"
-          asChild
-          className="w-full justify-start h-auto py-2 px-2 text-sm"
-        >
-          <Link href="#features" className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4" />
-            Key Features
-          </Link>
-        </Button>
       </div>
 
       {/* Rules Section */}

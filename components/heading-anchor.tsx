@@ -75,26 +75,26 @@ export function HeadingAnchor({
         onClick={handleCopyLink}
         aria-label={copied ? 'Link copied!' : 'Copy link to this section'}
         className={cn(
-          // Base positioning and size
+          // Base positioning and size - GitHub style positioning
           'absolute -left-8 top-1/2 -translate-y-1/2',
-          'w-6 h-6 rounded-glass-sm',
+          'w-6 h-6 rounded-md',
 
-          // Glass material effect
-          'glass-thin glass-border glass-tinted-blue',
+          // Minimal background with subtle hover effect (GitHub style)
+          'bg-transparent',
+          'hover:bg-muted/50',
 
           // Visibility and interaction
           'opacity-0 group-hover:opacity-100 focus:opacity-100',
-          'glass-transition',
-          'hover:glass-medium hover:scale-110 active:scale-95',
+          'transition-all duration-200 ease-in-out',
 
           // Accessibility
-          'focus:outline-none focus:ring-2 focus:ring-primary/50',
+          'focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-1',
 
           // Content centering
           'flex items-center justify-center',
 
-          // Text color with vibrancy
-          'text-primary vibrancy-secondary',
+          // Text color - subtle gray that becomes more visible on hover
+          'text-muted-foreground hover:text-foreground',
 
           // Responsive: hide on mobile
           'hidden md:flex',

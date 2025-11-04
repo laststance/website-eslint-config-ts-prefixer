@@ -3,6 +3,7 @@ import { RuleCard } from '@/components/rule-card'
 import { Header } from '@/components/header'
 import { CodeBlockWithCopy } from '@/components/code-block-with-copy'
 import { PreCodeBlockWithCopy } from '@/components/pre-code-block-with-copy'
+import { HeadingAnchor } from '@/components/heading-anchor'
 import type { EslintRule } from '@/lib/types'
 import { AlertTriangle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -162,9 +163,13 @@ export default async function EslintDocsPage() {
               id="installation"
               className="mb-12 glass-clear glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
-              <h2 className="text-black dark:text-white text-2xl font-semibold mb-4">
+              <HeadingAnchor
+                id="installation"
+                as="h2"
+                className="text-black dark:text-white text-2xl font-semibold mb-4"
+              >
                 Installation
-              </h2>
+              </HeadingAnchor>
               <div className="space-y-4">
                 <div>
                   <p className="text-black dark:text-gray-300 mb-3">
@@ -184,9 +189,13 @@ export default async function EslintDocsPage() {
               id="configuration"
               className="mb-12 glass-clear glass-border glass-shadow-sm p-6 rounded-glass-lg"
             >
-              <h2 className="text-black dark:text-white text-2xl font-semibold mb-4">
+              <HeadingAnchor
+                id="configuration"
+                as="h2"
+                className="text-black dark:text-white text-2xl font-semibold mb-4"
+              >
                 Configuration
-              </h2>
+              </HeadingAnchor>
               <div className="space-y-4">
                 <div>
                   <p className="text-black dark:text-gray-300 mb-3">
@@ -219,9 +228,13 @@ export default defineConfig([...tsPrefixer])`}
 
             {/* Rules Documentation Section */}
             <section>
-              <h2 className="text-black dark:text-white text-2xl font-semibold mb-6">
+              <HeadingAnchor
+                id="configured-rules"
+                as="h2"
+                className="text-black dark:text-white text-2xl font-semibold mb-6"
+              >
                 Configured Rules
-              </h2>
+              </HeadingAnchor>
               <p className="text-black dark:text-gray-300 mb-6">
                 Below is a comprehensive list of all ESLint rules configured by
                 this package:

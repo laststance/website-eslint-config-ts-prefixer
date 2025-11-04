@@ -127,9 +127,9 @@ export default async function EslintDocsPage() {
   return (
     <div className="relative">
       <Header />
-      <div className="lg:flex pt-16">
+      <div className="lg:flex">
         <RulesSidebar rules={rules} />
-        <main className="flex-1 p-4 sm:p-6 lg:p-10 space-y-8 lg:ml-72 min-h-screen">
+        <main className="flex-1 p-4 sm:p-6 lg:p-10 space-y-8 lg:ml-auto min-h-screen">
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
             <section className="mb-12">

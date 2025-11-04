@@ -2,6 +2,7 @@ import { RulesSidebar } from '@/components/rules-sidebar'
 import { RuleCard } from '@/components/rule-card'
 import { Header } from '@/components/header'
 import { CodeBlockWithCopy } from '@/components/code-block-with-copy'
+import { PreCodeBlockWithCopy } from '@/components/pre-code-block-with-copy'
 import type { EslintRule } from '@/lib/types'
 import { AlertTriangle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -192,30 +193,26 @@ export default async function EslintDocsPage() {
                     Add to your{' '}
                     <code className="text-blue-400">eslint.config.js</code>:
                   </p>
-                  <div className="bg-slate-900 dark:bg-slate-950 p-4 rounded overflow-x-auto">
-                    <pre className="text-gray-200">
-                      {`import { defineConfig } from 'eslint/config'
+                  <PreCodeBlockWithCopy
+                    code={`import { defineConfig } from 'eslint/config'
 import tsPrefixer from 'eslint-config-ts-prefixer'
 
 export default defineConfig([...tsPrefixer])`}
-                    </pre>
-                  </div>
+                  />
                 </div>
                 <div>
                   <p className="text-gray-800 dark:text-gray-300 mb-3">
                     Add lint scripts to your{' '}
                     <code className="text-blue-400">package.json</code>:
                   </p>
-                  <div className="bg-slate-900 dark:bg-slate-950 p-4 rounded overflow-x-auto">
-                    <pre className="text-gray-200">
-                      {`{
+                  <PreCodeBlockWithCopy
+                    code={`{
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   }
 }`}
-                    </pre>
-                  </div>
+                  />
                 </div>
               </div>
             </section>

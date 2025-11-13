@@ -1,13 +1,39 @@
+/**
+ * Tailwind CSS v4 Configuration
+ *
+ * In v4, most configuration is done via @theme in CSS files.
+ * This file is now optional and only needed for:
+ * - Plugin configuration
+ * - Advanced customization
+ * - Content paths (handled by Next.js automatically)
+ */
+
 import type { Config } from 'tailwindcss'
 import tailwindcssAnimate from 'tailwindcss-animate'
 
-const config = {
+const config: Config = {
+  /**
+   * Dark mode is handled via @custom-variant in globals.css
+   * This ensures compatibility with next-themes
+   */
   darkMode: 'class',
+
+  /**
+   * Content paths for Next.js
+   * Next.js automatically scans these directories
+   */
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
+  /**
+   * Theme configuration has been moved to app/globals.css using @theme directive
+   * This includes: colors, border radius, backdrop blur, etc.
+   *
+   * Only keeping essential plugin-specific config here
+   */
   theme: {
     container: {
       center: true,
@@ -16,93 +42,13 @@ const config = {
         '2xl': '1400px',
       },
     },
-    extend: {
-      colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
-        },
-        sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))',
-        },
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-        glass: '16px', // Apple liquid glass standard
-        'glass-lg': '20px',
-        'glass-xl': '24px',
-      },
-      backdropBlur: {
-        glass: '20px',
-        'glass-sm': '15px',
-        'glass-lg': '25px',
-        'glass-xl': '30px',
-      },
-      backdropSaturate: {
-        glass: '180%',
-      },
-      keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
-        },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-      },
-    },
   },
+
+  /**
+   * Plugins
+   * tailwindcss-animate: Adds animation utilities for Radix UI components
+   */
   plugins: [tailwindcssAnimate],
-} satisfies Config
+}
 
 export default config

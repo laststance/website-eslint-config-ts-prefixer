@@ -124,11 +124,6 @@ html {
    ============================================ */
 
 @layer utilities {
-  /* Text Balance Utility */
-  .text-balance {
-    text-wrap: balance;
-  }
-
   /* Material Thickness Variants */
   .glass-ultra-thin {
     background: rgba(255, 255, 255, 0.1);

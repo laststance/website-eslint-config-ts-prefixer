@@ -8,12 +8,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  turbopack: {},
-  webpack: (config, { dev, isServer }) => {
-    config.plugins.push(
-      codeInspectorPlugin({ bundler: 'webpack', hotKeys: ['altKey'] }),
-    )
-    return config
+  turbopack: {
+    rules: codeInspectorPlugin({
+      bundler: 'turbopack',
+      hotKeys: ['altKey'],
+    }),
   },
 }
 

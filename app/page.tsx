@@ -138,28 +138,28 @@ export default async function EslintDocsPage() {
         <main className="flex-1 p-4 sm:p-6 lg:p-10 space-y-8 lg:ml-auto min-h-screen">
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
-            <section className="mb-12">
-              <h1 className="text-white dark:text-white text-4xl md:text-5xl font-bold mb-4">
+            <section className="mb-16 glass-clear glass-border glass-shadow-md p-8 md:p-12 rounded-glass-xl">
+              <h1 className="text-gray-950 dark:text-white text-5xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
                 eslint-config-ts-prefixer
               </h1>
-              <p className="text-white dark:text-gray-300 text-lg md:text-xl mb-8">
+              <p className="text-gray-800 dark:text-gray-200 text-xl md:text-2xl mb-10 leading-relaxed font-medium max-w-3xl">
                 A zero-config TypeScript ESLint configuration with Prettier
                 integration
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#installation"
-                  className="inline-flex items-center px-5 py-2.5 glass-thin glass-tinted-blue glass-border rounded-glass font-medium glass-transition hover:glass-medium hover:scale-105 vibrancy-primary"
+                  className="group inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-glass-lg font-semibold glass-transition hover:scale-[1.02] hover:shadow-lg text-base"
                 >
-                  Get Started
+                  <span className="relative z-10">Get Started</span>
                 </a>
                 <a
                   href="https://github.com/laststance/eslint-config-ts-prefixer"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-5 py-2.5 glass-thin glass-border rounded-glass font-medium glass-transition hover:glass-medium hover:scale-105 vibrancy-primary"
+                  className="group inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-900 text-white dark:bg-gray-700 dark:hover:bg-gray-600 rounded-glass-lg font-semibold glass-transition hover:scale-[1.02] hover:shadow-lg text-base"
                 >
-                  View on GitHub
+                  <span className="relative z-10">View on GitHub</span>
                 </a>
               </div>
             </section>
@@ -167,7 +167,7 @@ export default async function EslintDocsPage() {
             {/* Installation Section */}
             <section
               id="installation"
-              className="mb-12 glass-clear glass-border glass-shadow-sm p-6 rounded-glass-lg"
+              className="mb-16 glass-clear glass-border glass-shadow-sm p-8 md:p-10 rounded-glass-xl transition-all duration-300 hover:glass-shadow-md"
             >
               <HeadingAnchor
                 id="installation"
@@ -193,7 +193,7 @@ export default async function EslintDocsPage() {
             {/* Configuration Section */}
             <section
               id="configuration"
-              className="mb-12 glass-clear glass-border glass-shadow-sm p-6 rounded-glass-lg"
+              className="mb-16 glass-clear glass-border glass-shadow-sm p-8 md:p-10 rounded-glass-xl transition-all duration-300 hover:glass-shadow-md"
             >
               <HeadingAnchor
                 id="configuration"
@@ -245,7 +245,7 @@ export default defineConfig([...tsPrefixer])`}
                 Below is a comprehensive list of all ESLint rules configured by
                 this package:
               </p>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-8">
                 {rules.map((rule) => (
                   <RuleCard key={rule.id} rule={rule} />
                 ))}

@@ -45,7 +45,7 @@ export function RuleCard({ rule }: RuleCardProps) {
   return (
     <Card
       id={rule.id}
-      className="scroll-mt-24 glass-clear glass-border glass-shadow-sm rounded-glass-lg transition-all duration-200 hover:glass-shadow-md hover:-translate-y-1"
+      className="scroll-mt-24 glass-clear glass-border glass-shadow-sm rounded-glass-lg transition-all duration-300 ease-out hover:glass-shadow-lg hover:-translate-y-1 isolate overflow-hidden relative"
     >
       <CardHeader>
         <CardTitle className="text-2xl font-semibold text-black dark:text-white">

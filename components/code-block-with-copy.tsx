@@ -28,18 +28,18 @@ export function CodeBlockWithCopy({
 
   return (
     <div className={`relative group ${className}`}>
-      <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded pr-12">
-        <code className="text-green-400">{code}</code>
+      <div className="bg-slate-900 dark:bg-slate-950 p-3 rounded-lg pr-12 transition-all duration-200 hover:ring-2 hover:ring-blue-500/30">
+        <code className="text-green-400 font-mono text-sm">{code}</code>
       </div>
       <Button
         variant="ghost"
         size="icon"
         onClick={handleCopy}
-        className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-slate-800 dark:hover:bg-slate-900"
+        className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out hover:bg-slate-800 dark:hover:bg-slate-900 hover:scale-110"
         aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
       >
         {copied ? (
-          <Check className="h-4 w-4 text-green-400" />
+          <Check className="h-4 w-4 text-green-400 animate-in fade-in zoom-in duration-200" />
         ) : (
           <Copy className="h-4 w-4 text-gray-400" />
         )}

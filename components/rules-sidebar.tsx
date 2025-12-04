@@ -32,13 +32,13 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
     <nav className="space-y-6 h-full">
       {/* Quick Navigation */}
       <div className="space-y-1">
-        <h3 className="text-sm font-semibold px-2 mb-2 vibrancy-secondary">
+        <h3 className="text-sm font-semibold px-2 mb-2 text-gray-900 dark:text-gray-100">
           Getting Started
         </h3>
         <Button
           variant="ghost"
           asChild
-          className="w-full justify-start h-auto py-2 px-2 text-sm"
+          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 font-medium"
         >
           <Link href="#installation" className="flex items-center gap-2">
             <Download className="h-4 w-4" />
@@ -48,7 +48,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
         <Button
           variant="ghost"
           asChild
-          className="w-full justify-start h-auto py-2 px-2 text-sm"
+          className="w-full justify-start h-auto py-2 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 font-medium"
         >
           <Link href="#configuration" className="flex items-center gap-2">
             <Settings className="h-4 w-4" />
@@ -59,7 +59,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
 
       {/* Rules Section */}
       <div>
-        <h3 className="text-sm font-semibold px-2 mb-2 flex items-center gap-2 vibrancy-secondary">
+        <h3 className="text-sm font-semibold px-2 mb-2 flex items-center gap-2 text-gray-900 dark:text-gray-100">
           <FileText className="h-4 w-4" />
           Configured Rules
         </h3>
@@ -67,7 +67,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
           <div className="space-y-4">
             {Object.entries(groupedRules).map(([pluginName, pluginRules]) => (
               <div key={pluginName}>
-                <h4 className="text-xs font-semibold text-muted-foreground px-2 mb-1">
+                <h4 className="text-xs font-bold text-gray-800 dark:text-gray-400 px-2 mb-1 uppercase tracking-wide">
                   {pluginName}
                 </h4>
                 <ul className="space-y-0.5">
@@ -76,12 +76,9 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
                       <Button
                         variant="ghost"
                         asChild
-                        className="w-full justify-start text-left h-auto py-1.5 px-2 text-sm"
+                        className="w-full justify-start text-left h-auto py-1.5 px-2 text-sm text-gray-900 hover:text-black hover:bg-gray-200/70 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-muted/50 font-medium"
                       >
-                        <Link
-                          href={`#${rule.id}`}
-                          className="block text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md"
-                        >
+                        <Link href={`#${rule.id}`} className="block rounded-md">
                           {rule.ruleName}
                         </Link>
                       </Button>
@@ -112,7 +109,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-72 p-0">
-            <div className="glass-thick glass-layered p-4 h-full">
+            <div className="glass-sidebar glass-layered p-4 h-full">
               <SidebarContent />
             </div>
           </SheetContent>
@@ -120,7 +117,7 @@ export function RulesSidebar({ rules }: RulesSidebarProps) {
       </div>
 
       {/* Desktop Sidebar - lg以上でのみ表示 */}
-      <aside className="hidden lg:block lg:fixed lg:left-0 lg:top-16 lg:w-72 lg:h-[calc(100vh-4rem)] glass-thick glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
+      <aside className="hidden lg:block lg:fixed lg:left-0 lg:top-16 lg:w-72 lg:h-[calc(100vh-4rem)] glass-sidebar glass-layered glass-border glass-shadow-md p-4 z-40 border-r rounded-tr-glass-lg">
         <SidebarContent />
       </aside>
     </>
